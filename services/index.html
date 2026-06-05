@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="BannedProduct Media services: Podcast Production, Video, Livestream, Web Development, Business Intelligence, AI Automation, Creator Consulting, Social Media, Graphic Design, Photography, VR Legacy Services.">
+  <title>Services — BannedProduct Media Inc.</title>
+  <link rel="stylesheet" href="../css/style.css">
+  <style>
+    .service-full {
+      display: grid;
+      grid-template-columns: 1fr 1.6fr;
+      gap: 4rem;
+      align-items: start;
+      padding: 4rem 0;
+      border-bottom: 1px solid var(--gray-light);
+    }
+    .service-full:last-child { border-bottom: none; }
+    .service-full:nth-child(even) { direction: rtl; }
+    .service-full:nth-child(even) > * { direction: ltr; }
+    .service-full-icon {
+      background: var(--gray-mid);
+      border: 2px solid var(--accent);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      aspect-ratio: 1;
+      font-size: 5rem;
+      position: sticky;
+      top: 100px;
+    }
+    .service-full h2 { font-size: 2rem; margin-bottom: 0.75rem; }
+    .service-full .accent-line { margin-top: 0.5rem; margin-bottom: 1.5rem; }
+    .service-includes {
+      margin-top: 1.5rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+    }
+    .service-includes li {
+      display: flex;
+      gap: 0.75rem;
+      align-items: center;
+      font-size: 0.9rem;
+      color: rgba(255,255,255,0.8);
+    }
+    .service-includes li::before {
+      content: '▸';
+      color: var(--accent);
+      flex-shrink: 0;
+    }
+    .service-price {
+      display: inline-block;
+      font-family: var(--font-head);
+      font-size: 0.85rem;
+      letter-spacing: 0.1em;
+      color: var(--accent);
+      border: 1px solid var(--accent);
+      padding: 0.4rem 1rem;
+      margin-bottom: 1.5rem;
+    }
+    @media (max-width: 768px) {
+      .service-full { grid-template-columns: 1fr; }
+      .service-full:nth-child(even) { direction: ltr; }
+      .service-full-icon { aspect-ratio: 4/1; position: static; }
+    }
+  </style>
+</head>
+<body>
+
+<div id="header-placeholder"></div>
+
+<main class="page-offset">
+
+  <div class="page-hero">
+    <div class="container">
+      <nav class="breadcrumb" aria-label="Breadcrumb">
+        <a href="../">Home</a>
+        <span class="sep">/</span>
+        <span>Services</span>
+      </nav>
+      <h1>Our <span class="text-accent">Services</span></h1>
+      <p>Eleven service lines. One uncompromising standard. Built to make your brand impossible to ignore.</p>
+    </div>
+  </div>
+
+  <!-- Quick Nav -->
+  <div style="background:var(--gray-dark);border-bottom:1px solid var(--gray-light);padding:1.25rem 0;overflow-x:auto;">
+    <div class="container">
+      <div style="display:flex;gap:0.5rem;white-space:nowrap;flex-wrap:wrap;">
+        <a href="#podcast" class="filter-tab active">Podcast</a>
+        <a href="#video" class="filter-tab">Video</a>
+        <a href="#livestream" class="filter-tab">Livestream</a>
+        <a href="#web" class="filter-tab">Web Dev</a>
+        <a href="#bi" class="filter-tab">BI</a>
+        <a href="#ai" class="filter-tab">AI &amp; Automation</a>
+        <a href="#consulting" class="filter-tab">Consulting</a>
+        <a href="#social" class="filter-tab">Social Media</a>
+        <a href="#design" class="filter-tab">Design</a>
+        <a href="#photography" class="filter-tab">Photography</a>
+        <a href="#vr" class="filter-tab">VR Legacy</a>
+      </div>
+    </div>
+  </div>
+
+  <section class="section">
+    <div class="container">
+
+      <!-- 1. Podcast Production -->
+      <div class="service-full" id="podcast">
+        <div class="service-full-icon" aria-hidden="true">🎙️</div>
+        <div>
+          <span class="section-label">Service 01</span>
+          <h2>Podcast <em class="text-accent">Production</em></h2>
+          <div class="accent-line"></div>
+          <span class="service-price">STARTING AT $500/EP</span>
+          <p>We handle the full lifecycle of podcast creation — from concept development to distribution across every major platform. Whether you're launching your first show or scaling an existing one, our production team delivers broadcast-quality audio that keeps listeners coming back.</p>
+          <p>We've produced over 200 episodes across multiple genres including business, veterans affairs, parenting, and technology.</p>
+          <ul class="service-includes">
+            <li>Concept development &amp; show structure</li>
+            <li>Remote or in-studio recording setup</li>
+            <li>Professional audio editing &amp; mixing</li>
+            <li>Intro/outro music and branding</li>
+            <li>Show notes, transcripts &amp; SEO copy</li>
+            <li>Distribution to Spotify, Apple, YouTube &amp; more</li>
+            <li>Growth strategy &amp; audience development</li>
+            <li>Guest booking &amp; pre-interview prep</li>
+          </ul>
+          <div style="margin-top:2rem;">
+            <a href="../contact/" class="btn btn-primary">Get a Quote</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- 2. Video Production -->
+      <div class="service-full" id="video">
+        <div class="service-full-icon" aria-hidden="true">🎬</div>
+        <div>
+          <span class="section-label">Service 02</span>
+          <h2>Video <em class="text-accent">Production</em></h2>
+          <div class="accent-line"></div>
+          <span class="service-price">CUSTOM PRICING</span>
+          <p>Cinematic storytelling meets strategic intent. Our video production team creates content that looks like a Hollywood production and converts like a sales funnel. We handle everything from pre-production planning through final delivery.</p>
+          <ul class="service-includes">
+            <li>Pre-production planning &amp; storyboarding</li>
+            <li>4K camera operation &amp; lighting direction</li>
+            <li>Professional color grading</li>
+            <li>Motion graphics &amp; lower thirds</li>
+            <li>Voiceover and sound design</li>
+            <li>Short-form reels and long-form documentaries</li>
+            <li>Brand films and product videos</li>
+            <li>YouTube optimization &amp; thumbnail design</li>
+          </ul>
+          <div style="margin-top:2rem;">
+            <a href="../contact/" class="btn btn-primary">Get a Quote</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- 3. Livestream -->
+      <div class="service-full" id="livestream">
+        <div class="service-full-icon" aria-hidden="true">📡</div>
+        <div>
+          <span class="section-label">Service 03</span>
+          <h2>Livestream <em class="text-accent">Production</em></h2>
+          <div class="accent-line"></div>
+          <span class="service-price">PACKAGES FROM $299</span>
+          <p>Multi-platform live streaming managed by professionals. We handle your tech stack, overlays, and audience management so you can focus on the content. From Whatnot drops to YouTube Live keynotes — we keep your stream running smooth.</p>
+          <ul class="service-includes">
+            <li>Multi-platform simultaneous streaming</li>
+            <li>Custom stream overlays and alerts</li>
+            <li>OBS / Streamlabs configuration</li>
+            <li>Real-time technical monitoring</li>
+            <li>Audience engagement strategies</li>
+            <li>Whatnot show production</li>
+            <li>Post-stream highlight editing</li>
+            <li>Stream analytics reporting</li>
+          </ul>
+          <div style="margin-top:2rem;">
+            <a href="../contact/" class="btn btn-primary">Get a Quote</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- 4. Web Development -->
+      <div class="service-full" id="web">
+        <div class="service-full-icon" aria-hidden="true">💻</div>
+        <div>
+          <span class="section-label">Service 04</span>
+          <h2>Web <em class="text-accent">Development</em></h2>
+          <div class="accent-line"></div>
+          <span class="service-price">STARTING AT $1,500</span>
+          <p>Custom websites and web applications built with performance, security, and conversion in mind. No bloated templates. No page builder drag-and-drop mediocrity. We architect and code solutions that represent your brand at the highest level.</p>
+          <ul class="service-includes">
+            <li>Custom HTML/CSS/JS or React builds</li>
+            <li>AWS hosting and infrastructure setup</li>
+            <li>E-commerce integrations</li>
+            <li>Landing pages &amp; sales funnels</li>
+            <li>Performance optimization (Core Web Vitals)</li>
+            <li>SEO architecture and technical SEO</li>
+            <li>CMS integration (WordPress, Contentful, Sanity)</li>
+            <li>Ongoing maintenance packages</li>
+          </ul>
+          <div style="margin-top:2rem;">
+            <a href="../contact/" class="btn btn-primary">Get a Quote</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- 5. Business Intelligence -->
+      <div class="service-full" id="bi">
+        <div class="service-full-icon" aria-hidden="true">📊</div>
+        <div>
+          <span class="section-label">Service 05</span>
+          <h2>Business <em class="text-accent">Intelligence</em></h2>
+          <div class="accent-line"></div>
+          <span class="service-price">STARTING AT $2,500</span>
+          <p>Enterprise-grade data solutions built by an actual BI developer — not a consultant who watched a tutorial. We design scalable data pipelines, interactive dashboards, and reporting systems that replace manual spreadsheet chaos with real-time clarity.</p>
+          <ul class="service-includes">
+            <li>Data warehouse design &amp; implementation</li>
+            <li>ETL pipeline development (Python, SQL, dbt)</li>
+            <li>Power BI / Tableau / Looker dashboards</li>
+            <li>AWS analytics stack (Redshift, Glue, Athena)</li>
+            <li>KPI framework development</li>
+            <li>Executive reporting automation</li>
+            <li>Ad-hoc analysis &amp; data strategy consulting</li>
+            <li>Team training &amp; documentation</li>
+          </ul>
+          <div style="margin-top:2rem;">
+            <a href="../contact/" class="btn btn-primary">Get a Quote</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- 6. AI & Automation -->
+      <div class="service-full" id="ai">
+        <div class="service-full-icon" aria-hidden="true">🤖</div>
+        <div>
+          <span class="section-label">Service 06</span>
+          <h2>AI &amp; <em class="text-accent">Automation</em></h2>
+          <div class="accent-line"></div>
+          <span class="service-price">STARTING AT $1,800</span>
+          <p>Stop doing manually what machines can do at scale. We design and deploy AI-powered workflows and automation systems that eliminate repetitive overhead and unlock your team's capacity for high-value work.</p>
+          <ul class="service-includes">
+            <li>Business process automation (Zapier, Make, n8n)</li>
+            <li>AI content workflows (OpenAI, Claude, custom LLMs)</li>
+            <li>Chatbot and virtual assistant development</li>
+            <li>Automated reporting and alerting systems</li>
+            <li>CRM and sales pipeline automation</li>
+            <li>Social media scheduling automation</li>
+            <li>Email sequence automation</li>
+            <li>Custom API integrations</li>
+          </ul>
+          <div style="margin-top:2rem;">
+            <a href="../contact/" class="btn btn-primary">Get a Quote</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- 7. Creator Consulting -->
+      <div class="service-full" id="consulting">
+        <div class="service-full-icon" aria-hidden="true">🎯</div>
+        <div>
+          <span class="section-label">Service 07</span>
+          <h2>Creator <em class="text-accent">Consulting</em></h2>
+          <div class="accent-line"></div>
+          <span class="service-price">$250/HR OR RETAINER</span>
+          <p>Personalized strategy sessions with Robert Ceasar — one of the few consultants who has actually built an audience from scratch while running a technology business. No generic playbooks. Actionable, custom strategy.</p>
+          <ul class="service-includes">
+            <li>Content strategy &amp; niche positioning</li>
+            <li>Platform-specific growth strategies</li>
+            <li>Monetization roadmap development</li>
+            <li>Brand voice and identity development</li>
+            <li>Audience building and community strategy</li>
+            <li>Sponsorship and partnership guidance</li>
+            <li>Creator business structuring</li>
+            <li>1-on-1 or group coaching sessions</li>
+          </ul>
+          <div style="margin-top:2rem;">
+            <a href="../contact/" class="btn btn-primary">Book a Session</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- 8. Social Media -->
+      <div class="service-full" id="social">
+        <div class="service-full-icon" aria-hidden="true">📱</div>
+        <div>
+          <span class="section-label">Service 08</span>
+          <h2>Social Media <em class="text-accent">Management</em></h2>
+          <div class="accent-line"></div>
+          <span class="service-price">FROM $800/MO</span>
+          <p>Consistent, on-brand social media presence managed by people who understand your audience. We create content, schedule posts, engage your community, and report on what's actually moving the needle.</p>
+          <ul class="service-includes">
+            <li>Content calendar creation and management</li>
+            <li>Platform-native content creation</li>
+            <li>Community management &amp; engagement</li>
+            <li>Instagram, TikTok, YouTube Shorts, X</li>
+            <li>Hashtag and SEO research</li>
+            <li>Monthly analytics reporting</li>
+            <li>Paid social strategy (Meta, TikTok Ads)</li>
+            <li>Influencer collaboration management</li>
+          </ul>
+          <div style="margin-top:2rem;">
+            <a href="../contact/" class="btn btn-primary">Get a Quote</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- 9. Graphic Design -->
+      <div class="service-full" id="design">
+        <div class="service-full-icon" aria-hidden="true">🎨</div>
+        <div>
+          <span class="section-label">Service 09</span>
+          <h2>Graphic <em class="text-accent">Design</em></h2>
+          <div class="accent-line"></div>
+          <span class="service-price">PROJECT-BASED</span>
+          <p>Bold, industrial-inspired design that commands attention. From logo creation to full brand identity systems, we design visuals that say something before you speak a single word.</p>
+          <ul class="service-includes">
+            <li>Logo design and brand identity systems</li>
+            <li>Social media graphic templates</li>
+            <li>Podcast cover art and episode graphics</li>
+            <li>YouTube thumbnails and channel art</li>
+            <li>Print materials (flyers, banners, merch)</li>
+            <li>Presentation and pitch deck design</li>
+            <li>Merchandise and apparel graphics</li>
+            <li>Brand style guide creation</li>
+          </ul>
+          <div style="margin-top:2rem;">
+            <a href="../contact/" class="btn btn-primary">Get a Quote</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- 10. Photography -->
+      <div class="service-full" id="photography">
+        <div class="service-full-icon" aria-hidden="true">📸</div>
+        <div>
+          <span class="section-label">Service 10</span>
+          <h2>Photography <em class="text-accent">Services</em></h2>
+          <div class="accent-line"></div>
+          <span class="service-price">STARTING AT $400</span>
+          <p>Professional photography that captures the story behind the brand. Headshots that command respect, event coverage that documents moments, and product photography that sells.</p>
+          <ul class="service-includes">
+            <li>Professional brand and headshot photography</li>
+            <li>Event and conference coverage</li>
+            <li>Product and lifestyle photography</li>
+            <li>Studio and on-location sessions</li>
+            <li>Professional retouching and editing</li>
+            <li>High-resolution digital delivery</li>
+            <li>Commercial licensing</li>
+          </ul>
+          <div style="margin-top:2rem;">
+            <a href="../contact/" class="btn btn-primary">Book a Session</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- 11. VR Legacy Services -->
+      <div class="service-full" id="vr">
+        <div class="service-full-icon" aria-hidden="true">🥽</div>
+        <div>
+          <span class="section-label">Service 11</span>
+          <h2>VR Legacy <em class="text-accent">Services</em></h2>
+          <div class="accent-line"></div>
+          <span class="service-price">CUSTOM PRICING</span>
+          <p>Cutting-edge virtual reality experiences designed to preserve, present, and pass on stories that matter. A specialty service for veterans, families, and organizations who want to create lasting immersive legacies.</p>
+          <ul class="service-includes">
+            <li>Immersive VR storytelling experiences</li>
+            <li>360° video capture and production</li>
+            <li>Virtual legacy interviews and memorials</li>
+            <li>Interactive training simulations</li>
+            <li>VR event and conference experiences</li>
+            <li>Museum and educational installations</li>
+            <li>Meta Quest and WebXR delivery</li>
+            <li>Family and military legacy archives</li>
+          </ul>
+          <div style="margin-top:2rem;">
+            <a href="../contact/" class="btn btn-primary">Inquire Now</a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <div class="cta-band">
+    <div class="container">
+      <h2>Not Sure Where to Start?</h2>
+      <p>Book a free discovery call and we'll map out exactly what your brand needs.</p>
+      <a href="../contact/" class="btn btn-outline">Free Discovery Call</a>
+    </div>
+  </div>
+
+</main>
+
+<div id="footer-placeholder"></div>
+<script src="../js/header.js"></script>
+<script src="../js/footer.js"></script>
+<script src="../js/main.js"></script>
+</body>
+</html>
