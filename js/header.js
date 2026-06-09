@@ -44,7 +44,18 @@
 <header id="site-header" role="banner">
   <nav class="nav-inner" aria-label="Main navigation">
     <a href="${resolvePath('/')}" class="nav-logo" aria-label="BannedProduct Media Home">
-      BANNED<span>PRODUCT</span>
+      <img
+        src="${resolvePath('/images/logos/logo-nav.png')}"
+        alt="BannedProduct Media Inc."
+        class="nav-logo-img"
+        onerror="this.style.display='none';this.nextElementSibling.style.display='flex';"
+      >
+      <span class="nav-logo-text" style="display:none">
+        <span class="logo-main">
+          <span class="logo-banned">BANNED</span><span class="logo-product">PRODUCT</span>
+        </span>
+        <span class="logo-sub">MEDIA INC.</span>
+      </span>
     </a>
     <div class="nav-links" id="nav-links" role="list">
       ${linksHTML}
