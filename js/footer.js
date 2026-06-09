@@ -33,7 +33,7 @@
     <div class="footer-grid">
       <div class="footer-brand">
         <a href="${resolvePath('/')}" class="nav-logo">BANNED<span>PRODUCT</span></a>
-        <p>A veteran-owned media company delivering bold content, cutting-edge technology, and authentic storytelling. We build brands that cannot be silenced.</p>
+        <p>A veteran-owned media &amp; IT company delivering bold content, cutting-edge technology, and authentic storytelling. We build brands that cannot be silenced.</p>
         <div class="footer-social" aria-label="Social media links">
           ${socialHTML}
         </div>
