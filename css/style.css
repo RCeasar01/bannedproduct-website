@@ -154,7 +154,7 @@ ul { list-style: none; }
   display: flex;
   align-items: center;
   justify-content: space-between;
-  height: 90px;
+  height: 100px;
   padding: 0 1.5rem;
   max-width: var(--max-w);
   margin: 0 auto;
@@ -168,8 +168,8 @@ ul { list-style: none; }
   line-height: 1;
 }
 .nav-logo-img {
-  height: 80px;
-  width: auto;
+  width: 260px;
+  height: auto;
   display: block;
 }
 /* Logo — text fallback (shown when image is absent) */
@@ -283,7 +283,7 @@ ul { list-style: none; }
 }
 
 /* Page content offset for fixed header */
-.page-offset { padding-top: 90px; }
+.page-offset { padding-top: 100px; }
 
 /* ============================================================
    FOOTER
