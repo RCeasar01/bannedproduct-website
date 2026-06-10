@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Get a quote from BannedProduct Media Inc. — tell us about your project and we'll get back to you within 24 hours.">
+  <title>Get a Quote — BannedProduct Media Inc.</title>
+  <link rel="stylesheet" href="../css/style.css">
+  <style>
+    .quote-form { max-width: 760px; margin: 0 auto; }
+    .form-group { margin-bottom: 1.5rem; }
+    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; }
+    @media (max-width: 600px) { .form-row { grid-template-columns: 1fr; } }
+    .form-group label {
+      display: block;
+      font-family: var(--font-head);
+      font-size: 0.75rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 0.5rem;
+    }
+    .form-group input,
+    .form-group select,
+    .form-group textarea {
+      width: 100%;
+      background: var(--gray-mid);
+      border: 1px solid var(--gray-light);
+      color: var(--white);
+      font-family: var(--font-body);
+      font-size: 0.95rem;
+      padding: 0.85rem 1rem;
+      outline: none;
+      transition: border-color 0.2s;
+      box-sizing: border-box;
+    }
+    .form-group input:focus,
+    .form-group select:focus,
+    .form-group textarea:focus {
+      border-color: var(--accent);
+    }
+    .form-group select option { background: var(--gray-mid); }
+    .form-group textarea { resize: vertical; min-height: 140px; }
+    .form-group input::placeholder,
+    .form-group textarea::placeholder { color: var(--text-muted); }
+    .checkbox-group { display: flex; flex-direction: column; gap: 0.6rem; }
+    .checkbox-group label {
+      display: flex; align-items: center; gap: 0.75rem;
+      font-family: var(--font-body); font-size: 0.95rem;
+      text-transform: none; letter-spacing: 0; color: var(--text-muted);
+      cursor: pointer;
+    }
+    .checkbox-group input[type="checkbox"] {
+      width: 18px; height: 18px; flex-shrink: 0;
+      accent-color: var(--accent);
+    }
+    #quote-success {
+      display: none;
+      background: rgba(34,197,94,0.1);
+      border: 1px solid rgba(34,197,94,0.4);
+      color: #22c55e;
+      padding: 1.5rem 2rem;
+      text-align: center;
+      font-family: var(--font-head);
+      letter-spacing: 0.1em;
+      margin-top: 2rem;
+    }
+  </style>
+</head>
+<body>
+
+<div id="header-placeholder"></div>
+
+<main class="page-offset">
+
+  <div class="page-hero">
+    <div class="container">
+      <nav class="breadcrumb">
+        <a href="../">Home</a><span class="sep">/</span>
+        <a href="../services/">Services</a><span class="sep">/</span>
+        <span>Get a Quote</span>
+      </nav>
+      <h1>Get a <em class="text-accent">Quote</em></h1>
+      <p>Tell us what you need. We'll respond within 24 hours with a custom proposal.</p>
+    </div>
+  </div>
+
+  <section class="section">
+    <div class="container">
+      <div class="quote-form">
+
+        <form id="quote-form" novalidate>
+
+          <!-- Contact Info -->
+          <div style="margin-bottom:2.5rem;">
+            <span class="section-label">Your Info</span>
+            <h2 style="margin-bottom:2rem;">Who Are <em class="text-accent">You?</em></h2>
+
+            <div class="form-row">
+              <div class="form-group">
+                <label for="q-name">Full Name *</label>
+                <input type="text" id="q-name" name="name" placeholder="Robert Ceasar" required autocomplete="name">
+              </div>
+              <div class="form-group">
+                <label for="q-email">Email Address *</label>
+                <input type="email" id="q-email" name="email" placeholder="you@example.com" required autocomplete="email">
+              </div>
+            </div>
+
+            <div class="form-row">
+              <div class="form-group">
+                <label for="q-phone">Phone Number</label>
+                <input type="tel" id="q-phone" name="phone" placeholder="(704) 555-0000" autocomplete="tel">
+              </div>
+              <div class="form-group">
+                <label for="q-company">Company / Brand Name</label>
+                <input type="text" id="q-company" name="company" placeholder="Your Brand Inc.">
+              </div>
+            </div>
+          </div>
+
+          <!-- Service -->
+          <div style="margin-bottom:2.5rem;">
+            <span class="section-label">Your Project</span>
+            <h2 style="margin-bottom:2rem;">What Do You <em class="text-accent">Need?</em></h2>
+
+            <div class="form-group">
+              <label for="q-service">Primary Service *</label>
+              <select id="q-service" name="service" required>
+                <option value="" disabled selected>Select a service...</option>
+                <option>Podcast Production</option>
+                <option>Video Production</option>
+                <option>Livestream Production</option>
+                <option>Web Development</option>
+                <option>Business Intelligence / Data</option>
+                <option>AI &amp; Automation</option>
+                <option>Creator Consulting</option>
+                <option>Social Media Management</option>
+                <option>Graphic Design</option>
+                <option>Managed IT Services</option>
+                <option>VR Legacy Services</option>
+                <option>Multiple Services / Not Sure</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label>Additional Services (select all that apply)</label>
+              <div class="checkbox-group">
+                <label><input type="checkbox" name="add[]" value="podcast"> Podcast Production</label>
+                <label><input type="checkbox" name="add[]" value="video"> Video Production</label>
+                <label><input type="checkbox" name="add[]" value="web"> Web Development</label>
+                <label><input type="checkbox" name="add[]" value="bi"> Business Intelligence / Data</label>
+                <label><input type="checkbox" name="add[]" value="ai"> AI &amp; Automation</label>
+                <label><input type="checkbox" name="add[]" value="social"> Social Media Management</label>
+                <label><input type="checkbox" name="add[]" value="design"> Graphic Design</label>
+                <label><input type="checkbox" name="add[]" value="it"> Managed IT Services</label>
+              </div>
+            </div>
+
+            <div class="form-row">
+              <div class="form-group">
+                <label for="q-budget">Budget Range</label>
+                <select id="q-budget" name="budget">
+                  <option value="" disabled selected>Select a range...</option>
+                  <option>Under $500</option>
+                  <option>$500 – $1,000</option>
+                  <option>$1,000 – $2,500</option>
+                  <option>$2,500 – $5,000</option>
+                  <option>$5,000 – $10,000</option>
+                  <option>$10,000+</option>
+                  <option>Ongoing / Retainer</option>
+                  <option>Not sure yet</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label for="q-timeline">Timeline</label>
+                <select id="q-timeline" name="timeline">
+                  <option value="" disabled selected>When do you need this?</option>
+                  <option>ASAP (within 2 weeks)</option>
+                  <option>1 month</option>
+                  <option>2–3 months</option>
+                  <option>3–6 months</option>
+                  <option>Flexible / No rush</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="q-details">Tell Us About Your Project *</label>
+              <textarea id="q-details" name="details" placeholder="Describe what you're trying to build or accomplish. The more detail you give us, the better we can tailor our proposal to your needs." required></textarea>
+            </div>
+
+            <div class="form-group">
+              <label for="q-referral">How Did You Hear About Us?</label>
+              <select id="q-referral" name="referral">
+                <option value="" disabled selected>Select one...</option>
+                <option>YouTube</option>
+                <option>Instagram</option>
+                <option>X / Twitter</option>
+                <option>TikTok</option>
+                <option>Whatnot</option>
+                <option>LinkedIn</option>
+                <option>Google Search</option>
+                <option>Word of Mouth / Referral</option>
+                <option>Podcast</option>
+                <option>Other</option>
+              </select>
+            </div>
+          </div>
+
+          <button type="submit" class="btn btn-primary" style="width:100%;padding:1.1rem;font-size:1rem;letter-spacing:0.12em;">
+            SUBMIT QUOTE REQUEST
+          </button>
+
+        </form>
+
+        <div id="quote-success">
+          ✓ &nbsp; Quote request received! We'll be in touch within 24 hours.
+        </div>
+
+        <p style="color:var(--text-muted);font-size:0.85rem;text-align:center;margin-top:1.5rem;">
+          Prefer to talk directly?
+          <a href="tel:+17048358274" style="color:var(--accent);">704-835-8274</a> or
+          <a href="mailto:contact@bannedproductmedia.com" style="color:var(--accent);">contact@bannedproductmedia.com</a>
+        </p>
+
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<div id="footer-placeholder"></div>
+<script src="../js/header.js"></script>
+<script src="../js/footer.js"></script>
+<script src="../js/main.js"></script>
+<script>
+  document.getElementById('quote-form').addEventListener('submit', function(e) {
+    e.preventDefault();
+    const btn = this.querySelector('[type=submit]');
+    btn.textContent = 'SENDING...';
+    btn.disabled = true;
+    setTimeout(() => {
+      this.style.display = 'none';
+      document.getElementById('quote-success').style.display = 'block';
+    }, 1000);
+  });
+</script>
+</body>
+</html>
