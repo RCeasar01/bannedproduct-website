@@ -129,4 +129,19 @@
   }
 
   function init() {
-    const placeholder = document.getElementById('footer
+    const placeholder = document.getElementById('footer-placeholder');
+    if (placeholder) {
+      placeholder.outerHTML = buildFooter();
+    } else {
+      document.body.insertAdjacentHTML('beforeend', buildFooter());
+    }
+    initScrollTop();
+    initFadeUp();
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', init);
+  } else {
+    init();
+  }
+})();
