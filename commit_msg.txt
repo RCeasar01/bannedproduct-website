@@ -1,1 +1,1 @@
-Wire contact form to Formspree (xlgklnpr)
+Add Discord social link to contact and giveaways pages
