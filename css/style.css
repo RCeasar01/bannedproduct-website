@@ -171,6 +171,7 @@ ul { list-style: none; }
   height: 46px;
   width: auto;
   display: block;
+  mix-blend-mode: screen;
 }
 /* Logo — text fallback (shown when image is absent) */
 .nav-logo-text {
