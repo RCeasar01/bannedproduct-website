@@ -53,7 +53,7 @@
 
   // Counter animation
   function animateCounters() {
-    const counters = document.querySelectorAll('.stat-number[data-target]');
+    const counters = document.querySelectorAll('.stat-number[data-target], .pipeline-number[data-target]');
     if (!counters.length) return;
     const obs = new IntersectionObserver((entries) => {
       entries.forEach(e => {

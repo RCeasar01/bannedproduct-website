@@ -3,28 +3,252 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Portfolio — BannedProduct Media Inc. Coming soon.">
-  <title>Portfolio — BannedProduct Media Inc.</title>
+  <meta name="description" content="Work & Portfolio — BannedProduct Media Inc. Active projects, client work, and case studies.">
+  <title>Work — BannedProduct Media Inc.</title>
   <link rel="stylesheet" href="../css/style.css">
   <meta property="og:image" content="https://rceasar01.github.io/bannedproduct-website/images/logos/logo-website.png">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:image" content="https://rceasar01.github.io/bannedproduct-website/images/logos/logo-website.png">
   <link rel="icon" type="image/png" href="../images/logos/logo-website.png">
+  <style>
+    /* ── Pipeline counters ── */
+    .pipeline-section {
+      padding: 5rem 0 4rem;
+      background: var(--black);
+    }
+    .pipeline-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
+      gap: 1px;
+      border: 1px solid var(--gray-light);
+      margin-top: 3rem;
+    }
+    .pipeline-card {
+      background: var(--gray-mid);
+      padding: 2.25rem 1.75rem;
+      text-align: center;
+      position: relative;
+      z-index: 1;
+      transition: background var(--transition);
+    }
+    .pipeline-card:hover { background: var(--gray-light); }
+    .pipeline-card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 3px;
+      background: var(--accent);
+      transform: scaleX(0);
+      transition: transform 0.35s ease;
+    }
+    .pipeline-card:hover::before { transform: scaleX(1); }
+    .pipeline-number {
+      font-family: var(--font-head);
+      font-size: clamp(2.8rem, 5vw, 4rem);
+      color: var(--accent);
+      line-height: 1;
+      display: block;
+      margin-bottom: 0.5rem;
+    }
+    .pipeline-label {
+      font-family: var(--font-head);
+      font-size: 0.72rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--white);
+      display: block;
+      margin-bottom: 0.4rem;
+    }
+    .pipeline-sub {
+      font-size: 0.72rem;
+      color: var(--text-muted);
+      letter-spacing: 0.06em;
+    }
+    .pipeline-dot {
+      display: inline-block;
+      width: 7px;
+      height: 7px;
+      background: var(--accent);
+      border-radius: 50%;
+      margin-right: 0.35rem;
+      vertical-align: middle;
+      animation: wipPulse 1.6s ease-in-out infinite;
+    }
+    @keyframes wipPulse {
+      0%,100% { opacity:1; transform:scale(1); }
+      50%      { opacity:0.35; transform:scale(0.65); }
+    }
+
+    /* ── Case study coming-soon band ── */
+    .case-band {
+      background: var(--gray-dark);
+      border-top: 1px solid var(--gray-light);
+      border-bottom: 1px solid var(--gray-light);
+      padding: 5rem 0;
+      text-align: center;
+    }
+    .case-band .wip-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: rgba(204,17,17,0.1);
+      border: 1px solid rgba(204,17,17,0.3);
+      color: var(--accent);
+      font-family: var(--font-head);
+      font-size: 0.7rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      padding: 0.45em 1.1em;
+      margin-bottom: 2rem;
+    }
+    .case-band .wip-badge::before {
+      content: '';
+      width: 7px; height: 7px;
+      background: var(--accent);
+      border-radius: 50%;
+      animation: wipPulse 1.4s ease-in-out infinite;
+    }
+
+    /* ── Featured tags ── */
+    .work-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.6rem;
+      justify-content: center;
+      margin: 2.5rem 0 3rem;
+    }
+    .work-tag {
+      font-family: var(--font-head);
+      font-size: 0.65rem;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      border: 1px solid var(--gray-light);
+      padding: 0.35em 0.85em;
+    }
+  </style>
 </head>
 <body>
 
 <div id="header-placeholder"></div>
 
-<main class="page-offset"
-      data-wip-section="Portfolio"
-      data-wip-desc="A showcase of our podcast, video, photography, design, and technology work. Full case studies dropping soon."
-      data-wip-icon="🎨">
+<main class="page-offset">
+
+  <!-- ── PAGE HEADER ── -->
+  <section style="background:var(--gray-dark);padding:4rem 0 3rem;border-bottom:1px solid var(--gray-light);">
+    <div class="container">
+      <span class="section-label">The Work</span>
+      <h1>Active Projects &amp; <em class="text-accent">Client Work</em></h1>
+      <div class="accent-line"></div>
+      <p style="color:var(--text-muted);max-width:600px;margin-top:1.25rem;">
+        From custom websites and mobile apps to full media productions — here's what's currently in the pipeline at BannedProduct Media Inc.
+      </p>
+    </div>
+  </section>
+
+  <!-- ── PROJECT PIPELINE COUNTERS ── -->
+  <section class="pipeline-section">
+    <div class="container">
+      <span class="section-label">Current Pipeline</span>
+      <h2>What We're <em class="text-accent">Building</em></h2>
+      <div class="accent-line"></div>
+
+      <div class="pipeline-grid">
+
+        <div class="pipeline-card fade-up">
+          <span class="pipeline-number" data-target="4">0</span>
+          <span class="pipeline-label">Custom Websites</span>
+          <span class="pipeline-sub"><span class="pipeline-dot"></span>In Development</span>
+        </div>
+
+        <div class="pipeline-card fade-up">
+          <span class="pipeline-number" data-target="1">0</span>
+          <span class="pipeline-label">Mobile Games</span>
+          <span class="pipeline-sub"><span class="pipeline-dot"></span>In Development</span>
+        </div>
+
+        <div class="pipeline-card fade-up">
+          <span class="pipeline-number" data-target="2">0</span>
+          <span class="pipeline-label">Mobile Apps</span>
+          <span class="pipeline-sub"><span class="pipeline-dot"></span>In Development</span>
+        </div>
+
+        <div class="pipeline-card fade-up">
+          <span class="pipeline-number" data-target="3">0</span>
+          <span class="pipeline-label">Web Apps</span>
+          <span class="pipeline-sub"><span class="pipeline-dot"></span>In Development</span>
+        </div>
+
+        <div class="pipeline-card fade-up">
+          <span class="pipeline-number" data-target="2">0</span>
+          <span class="pipeline-label">Client Media</span>
+          <span class="pipeline-sub"><span class="pipeline-dot"></span>In Production</span>
+        </div>
+
+        <div class="pipeline-card fade-up">
+          <span class="pipeline-number" data-target="10">0</span>
+          <span class="pipeline-label">Years Active</span>
+          <span class="pipeline-sub">Since 2016</span>
+        </div>
+
+        <div class="pipeline-card fade-up">
+          <span class="pipeline-number" data-target="50" data-suffix="+">0+</span>
+          <span class="pipeline-label">Projects Delivered</span>
+          <span class="pipeline-sub">Across all services</span>
+        </div>
+
+        <div class="pipeline-card fade-up">
+          <span class="pipeline-number" data-target="11">0</span>
+          <span class="pipeline-label">Service Lines</span>
+          <span class="pipeline-sub">Full-spectrum delivery</span>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ── WHAT WE BUILD ── -->
+  <section class="section" style="background:var(--gray-dark);">
+    <div class="container">
+      <span class="section-label">Capabilities</span>
+      <h2>What We <em class="text-accent">Build</em></h2>
+      <div class="accent-line"></div>
+      <div class="work-tags">
+        <span class="work-tag">Custom Websites</span>
+        <span class="work-tag">Mobile Apps (iOS &amp; Android)</span>
+        <span class="work-tag">Mobile Games</span>
+        <span class="work-tag">Web Apps &amp; SaaS</span>
+        <span class="work-tag">Podcast Production</span>
+        <span class="work-tag">Video Production</span>
+        <span class="work-tag">Livestream Setup</span>
+        <span class="work-tag">Business Intelligence</span>
+        <span class="work-tag">AI &amp; Automation</span>
+        <span class="work-tag">Branding &amp; Design</span>
+        <span class="work-tag">Managed IT</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── CASE STUDIES COMING SOON ── -->
+  <section class="case-band">
+    <div class="container">
+      <div class="wip-badge">Case Studies Coming Soon</div>
+      <h2>Full Portfolio <em class="text-accent">Dropping Soon</em></h2>
+      <p style="color:var(--text-muted);max-width:520px;margin:1.25rem auto 2.5rem;font-size:1rem;line-height:1.7;">
+        Detailed case studies, screenshots, and results for every active and completed project are being compiled. Check back soon — or reach out to discuss your project now.
+      </p>
+      <div style="display:flex;gap:1rem;justify-content:center;flex-wrap:wrap;">
+        <a href="../contact/" class="btn btn-primary">Start a Project</a>
+        <a href="../services/" class="btn btn-outline">View Services</a>
+      </div>
+    </div>
+  </section>
+
 </main>
 
 <div id="footer-placeholder"></div>
 <script src="../js/header.js"></script>
 <script src="../js/footer.js"></script>
 <script src="../js/main.js"></script>
-<script src="../js/wip.js"></script>
 </body>
 </html>
