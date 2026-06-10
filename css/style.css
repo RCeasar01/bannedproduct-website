@@ -245,6 +245,34 @@ ul { list-style: none; }
 .nav-cta:hover { background: var(--white); color: var(--black) !important; }
 .nav-cta::after { display: none; }
 
+/* ---- Mode toggle: BUSINESS | CONTENT ---- */
+.nav-mode-toggle {
+  display: flex;
+  align-items: center;
+  background: var(--gray-light);
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: 2px;
+  padding: 2px;
+  gap: 2px;
+  flex-shrink: 0;
+}
+.nav-mode-btn {
+  font-family: var(--font-head);
+  font-size: 0.65rem;
+  letter-spacing: 0.18em;
+  color: var(--text-muted);
+  text-decoration: none;
+  padding: 0.3em 0.85em;
+  border-radius: 2px;
+  transition: background var(--transition), color var(--transition);
+  white-space: nowrap;
+}
+.nav-mode-btn:hover { color: var(--white); }
+.nav-mode-btn.active {
+  background: var(--accent);
+  color: var(--white);
+}
+
 .nav-hamburger {
   display: none;
   flex-direction: column;

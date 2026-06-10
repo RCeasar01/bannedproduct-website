@@ -1,21 +1,31 @@
 /**
  * BannedProduct Media — Shared Header
- * Injects nav and handles mobile toggle + active link
+ * Two-mode nav: BUSINESS (default) | CONTENT
+ * Base URL always = business. /content/ and related = content mode.
  */
 (function () {
-  const NAV_LINKS = [
+
+  const BIZ_LINKS = [
     { href: '/',           label: 'Home' },
     { href: '/about/',     label: 'About' },
     { href: '/services/',  label: 'Services' },
     { href: '/portfolio/', label: 'Work' },
-    { href: '/podcast/',   label: 'Podcast' },
-    { href: '/content/',   label: 'Content & Giveaways' },
     { href: '/contact/',   label: 'Contact', cta: true },
   ];
 
+  const CONTENT_LINKS = [
+    { href: '/content/',                                        label: 'Hub' },
+    { href: '/podcast/',                                        label: 'Podcast' },
+    { href: '/blog/',                                           label: 'Blog' },
+    { href: '/content/#giveaways',                             label: 'Giveaways' },
+    { href: 'https://www.whatnot.com/user/bannedproduct',      label: 'Whatnot', external: true },
+    { href: '/contact/',                                        label: 'Contact', cta: true },
+  ];
+
+  // Content-mode pages — anything under these paths
+  const CONTENT_PATHS = ['/content', '/podcast', '/blog', '/giveaways'];
+
   function getBasePath() {
-    // GitHub Pages serves from a subdirectory (e.g. /bannedproduct-website/)
-    // so depth=2 at the root — we need depth-2 levels of '..' to get back to site root
     const depth = (window.location.pathname.match(/\//g) || []).length;
     const levels = Math.max(0, depth - 2);
     if (levels === 0) return '';
@@ -23,28 +33,46 @@
   }
 
   function resolvePath(href) {
+    if (/^https?:\/\//.test(href)) return href; // external URLs unchanged
     const base = getBasePath();
-    const rel = href.replace(/^\//, ''); // strip leading slash
-    if (!base) return rel || './';
-    return base + '/' + rel;
+    const rel = href.replace(/^\//, '').split('#');
+    const path = rel[0];
+    const hash = rel[1] ? '#' + rel[1] : '';
+    if (!base) return (path || './') + hash;
+    return base + '/' + path + hash;
+  }
+
+  function detectMode() {
+    const p = window.location.pathname;
+    return CONTENT_PATHS.some(cp => p.includes(cp)) ? 'content' : 'biz';
   }
 
   function isActive(href) {
+    if (/^https?:\/\//.test(href)) return false;
     const p = window.location.pathname;
-    if (href === '/') return p === '/' || p.endsWith('/index.html') && !p.replace(/\/index\.html$/, '').includes('/');
-    return p.includes(href.replace(/\/$/, ''));
+    const clean = href.replace(/#.*$/, '');
+    if (clean === '/') return p === '/' || (p.endsWith('/index.html') && p.split('/').length <= 3);
+    return p.includes(clean.replace(/\/$/, ''));
   }
 
   function buildHeader() {
-    const linksHTML = NAV_LINKS.map(({ href, label, cta }) => {
+    const mode  = detectMode();
+    const links = mode === 'content' ? CONTENT_LINKS : BIZ_LINKS;
+
+    const linksHTML = links.map(({ href, label, cta, external }) => {
       const cls = [cta ? 'nav-cta' : '', isActive(href) ? 'active' : ''].filter(Boolean).join(' ');
-      return `<a href="${resolvePath(href)}" class="${cls}">${label}</a>`;
+      const target = external ? ' target="_blank" rel="noopener"' : '';
+      return `<a href="${resolvePath(href)}" class="${cls}"${target}>${label}</a>`;
     }).join('');
+
+    const bizHref     = resolvePath('/');
+    const contentHref = resolvePath('/content/');
 
     return `
 <header id="site-header" role="banner">
   <nav class="nav-inner" aria-label="Main navigation">
-    <a href="${resolvePath('/')}" class="nav-logo" aria-label="BannedProduct Media Home">
+
+    <a href="${bizHref}" class="nav-logo" aria-label="BannedProduct Media Home">
       <img
         src="${resolvePath('/images/logos/logo-website.png')}"
         alt="BannedProduct Media Inc."
@@ -58,9 +86,16 @@
         <span class="logo-sub">MEDIA INC.</span>
       </span>
     </a>
+
+    <div class="nav-mode-toggle" role="group" aria-label="Site mode">
+      <a href="${bizHref}"     class="nav-mode-btn${mode === 'biz'     ? ' active' : ''}">BUSINESS</a>
+      <a href="${contentHref}" class="nav-mode-btn${mode === 'content' ? ' active' : ''}">CONTENT</a>
+    </div>
+
     <div class="nav-links" id="nav-links" role="list">
       ${linksHTML}
     </div>
+
     <button class="nav-hamburger" id="nav-toggle" aria-label="Toggle navigation" aria-expanded="false" aria-controls="nav-links">
       <span></span><span></span><span></span>
     </button>
@@ -69,7 +104,6 @@
   }
 
   function init() {
-    // Inject header
     const placeholder = document.getElementById('header-placeholder');
     if (placeholder) {
       placeholder.outerHTML = buildHeader();
@@ -84,7 +118,6 @@
       toggle.addEventListener('click', () => {
         const open = links.classList.toggle('open');
         toggle.setAttribute('aria-expanded', open);
-        // Animate hamburger lines
         const spans = toggle.querySelectorAll('span');
         if (open) {
           spans[0].style.transform = 'rotate(45deg) translate(5px, 5px)';
@@ -94,8 +127,6 @@
           spans.forEach(s => { s.style.transform = ''; s.style.opacity = ''; });
         }
       });
-
-      // Close on outside click
       document.addEventListener('click', (e) => {
         if (!e.target.closest('#site-header') && links.classList.contains('open')) {
           links.classList.remove('open');
@@ -105,14 +136,10 @@
       });
     }
 
-    // Scroll shadow on header
+    // Scroll shadow
     const header = document.getElementById('site-header');
     window.addEventListener('scroll', () => {
-      if (window.scrollY > 20) {
-        header.style.boxShadow = '0 4px 30px rgba(189,113,29,0.15)';
-      } else {
-        header.style.boxShadow = 'none';
-      }
+      header.style.boxShadow = window.scrollY > 20 ? '0 4px 30px rgba(204,17,17,0.15)' : 'none';
     }, { passive: true });
   }
 
