@@ -698,6 +698,16 @@ ul { list-style: none; }
   filter: brightness(0) invert(1);
   opacity: 1;
 }
+/* Light-background logos: show in a white badge */
+.client-logo-wrap--light {
+  background: #fff;
+  border-radius: 6px;
+  padding: 0.5rem 1rem;
+  filter: grayscale(100%);
+}
+.client-logo-wrap--light:hover {
+  filter: grayscale(0%);
+}
 .client-logo {
   max-height: 90px;
   max-width: 240px;
