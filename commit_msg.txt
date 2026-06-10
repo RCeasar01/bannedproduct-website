@@ -1,1 +1,1 @@
-home: replace RC placeholder with real bio photo
+about: replace timeline with accurate company history 2016-2026+
