@@ -24,6 +24,12 @@
 
   const CONTENT_PATHS = ['/content', '/podcast', '/blog', '/giveaways', '/socials'];
 
+  function isRootHosted() {
+    // Custom domain or localhost — site lives at root, absolute paths work as-is
+    // GitHub Pages without custom domain serves from a subpath like /bannedproduct-website/
+    return !window.location.hostname.includes('github.io');
+  }
+
   function getBasePath() {
     const depth = (window.location.pathname.match(/\//g) || []).length;
     const levels = Math.max(0, depth - 2);
@@ -33,6 +39,9 @@
 
   function resolvePath(href) {
     if (/^https?:\/\//.test(href)) return href;
+    // On custom domain / GoDaddy hosting, absolute paths just work
+    if (isRootHosted()) return href;
+    // GitHub Pages subpath — resolve relative to current depth
     const base = getBasePath();
     const parts = href.replace(/^\//, '').split('#');
     const path  = parts[0];
