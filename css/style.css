@@ -628,6 +628,23 @@ ul { list-style: none; }
   color: rgba(0,0,0,0.7);
   margin-top: 0.25rem;
 }
+.stat-wip {
+  font-size: clamp(1.2rem, 2.5vw, 1.8rem) !important;
+  opacity: 0.35;
+  letter-spacing: 0.1em;
+}
+.stat-wip-label {
+  display: block;
+  font-family: var(--font-head);
+  font-size: 0.6rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: rgba(0,0,0,0.5);
+  margin-top: 0.2rem;
+  border: 1px solid rgba(0,0,0,0.2);
+  display: inline-block;
+  padding: 0.15em 0.6em;
+}
 @media (max-width: 600px) {
   .stats-grid { grid-template-columns: repeat(2, 1fr); }
 }
