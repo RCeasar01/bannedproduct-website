@@ -1,4 +1,1 @@
-Add Support/Donate button to header on all pages
-
-Gold-styled button in mode bar linking to GoFundMe campaign.
-Appears on every page via shared header.js.
+Wire contact form to Formspree (xlgklnpr)
