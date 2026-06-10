@@ -1,0 +1,1 @@
+home: replace RC placeholder with real bio photo
