@@ -56,10 +56,11 @@
         <h4>Company</h4>
         <ul>
           <li><a href="${resolvePath('/about/')}">About Us</a></li>
-          <li><a href="${resolvePath('/portfolio/')}">Portfolio</a></li>
+          <li><a href="${resolvePath('/portfolio/')}">Work</a></li>
           <li><a href="${resolvePath('/podcast/')}">Podcast</a></li>
           <li><a href="${resolvePath('/blog/')}">Blog</a></li>
-          <li><a href="${resolvePath('/giveaways/')}">Giveaways</a></li>
+          <li><a href="${resolvePath('/content/')}">Content Hub</a></li>
+          <li><a href="${resolvePath('/content/')}#giveaways">Giveaways</a></li>
           <li><a href="${resolvePath('/contact/')}">Contact</a></li>
         </ul>
       </div>
@@ -128,19 +129,4 @@
   }
 
   function init() {
-    const placeholder = document.getElementById('footer-placeholder');
-    if (placeholder) {
-      placeholder.outerHTML = buildFooter();
-    } else {
-      document.body.insertAdjacentHTML('beforeend', buildFooter());
-    }
-    initScrollTop();
-    initFadeUp();
-  }
-
-  if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', init);
-  } else {
-    init();
-  }
-})();
+    const placeholder = document.getElementById('footer

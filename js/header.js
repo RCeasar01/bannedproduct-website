@@ -4,14 +4,13 @@
  */
 (function () {
   const NAV_LINKS = [
-    { href: '/',            label: 'Home' },
-    { href: '/about/',      label: 'About' },
-    { href: '/services/',   label: 'Services' },
-    { href: '/portfolio/',  label: 'Portfolio' },
-    { href: '/podcast/',    label: 'Podcast' },
-    { href: '/blog/',       label: 'Blog' },
-    { href: '/giveaways/',  label: 'Giveaways' },
-    { href: '/contact/',    label: 'Contact', cta: true },
+    { href: '/',           label: 'Home' },
+    { href: '/about/',     label: 'About' },
+    { href: '/services/',  label: 'Services' },
+    { href: '/portfolio/', label: 'Work' },
+    { href: '/content/',   label: 'Content' },
+    { href: '/podcast/',   label: 'Podcast' },
+    { href: '/contact/',   label: 'Contact', cta: true },
   ];
 
   function getBasePath() {
