@@ -46,7 +46,7 @@
   <nav class="nav-inner" aria-label="Main navigation">
     <a href="${resolvePath('/')}" class="nav-logo" aria-label="BannedProduct Media Home">
       <img
-        src="${resolvePath('/images/logos/logo-nav.png')}"
+        src="${resolvePath('/images/logos/logo-primary-clean.png')}"
         alt="BannedProduct Media Inc."
         class="nav-logo-img"
         onerror="this.style.display='none';this.nextElementSibling.style.display='flex';"
