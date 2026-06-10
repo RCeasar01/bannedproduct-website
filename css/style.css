@@ -154,7 +154,7 @@ ul { list-style: none; }
   display: flex;
   align-items: center;
   justify-content: space-between;
-  height: 70px;
+  height: 90px;
   padding: 0 1.5rem;
   max-width: var(--max-w);
   margin: 0 auto;
@@ -168,7 +168,7 @@ ul { list-style: none; }
   line-height: 1;
 }
 .nav-logo-img {
-  height: 46px;
+  height: 80px;
   width: auto;
   display: block;
 }
@@ -283,7 +283,7 @@ ul { list-style: none; }
 }
 
 /* Page content offset for fixed header */
-.page-offset { padding-top: 70px; }
+.page-offset { padding-top: 90px; }
 
 /* ============================================================
    FOOTER
