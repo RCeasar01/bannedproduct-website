@@ -71,8 +71,8 @@
           <li><a href="${resolvePath('/giveaway-rules/')}">Giveaway Rules</a></li>
         </ul>
         <div style="margin-top:1.5rem;">
-          <h4>Veteran Owned</h4>
-          <p style="font-size:0.8rem;color:#888;margin-top:0.5rem;">Proudly serving our community with the same dedication given to our country.</p>
+          <h4>Contact</h4>
+          <p style="font-size:0.8rem;color:#888;margin-top:0.5rem;"><a href="tel:+17048358274" style="color:#cc1111;text-decoration:none;">704-835-8274</a><br><a href="mailto:contact@bannedproductmedia.com" style="color:#cc1111;text-decoration:none;">contact@bannedproductmedia.com</a></p>
         </div>
       </div>
     </div>
