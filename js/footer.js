@@ -8,11 +8,10 @@
   const SOCIAL = [
     { icon: '▶', label: 'YouTube',   href: 'https://www.youtube.com/@bannedproduct' },
     { icon: '◉', label: 'Instagram', href: 'https://www.instagram.com/rob_ceasar/' },
-    { icon: '𝕏', label: 'X/Twitter', href: 'https://x.com/bannedproduct' },
     { icon: '◈', label: 'TikTok',    href: 'https://www.tiktok.com/@bannedproduct7' },
     { icon: '◐', label: 'Twitch',    href: 'https://www.twitch.tv/banned_product' },
     { icon: '⬡', label: 'Whatnot',   href: 'https://www.whatnot.com/user/bannedproduct' },
-    { icon: '◎', label: 'LinkedIn',  href: 'https://www.linkedin.com/company/bannedproduct-media' },
+    { icon: '◎', label: 'LinkedIn',  href: 'https://www.linkedin.com/in/robertceasar/' },
     { icon: '◑', label: 'Facebook',  href: 'https://www.facebook.com/robert.ceasar1/' },
   ];
 
