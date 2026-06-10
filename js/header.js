@@ -14,15 +14,15 @@
   ];
 
   const CONTENT_LINKS = [
-    { href: '/content/',                                    label: 'All Content' },
-    { href: '/podcast/',                                    label: 'Podcast' },
-    { href: '/blog/',                                       label: 'Blog' },
-    { href: '/content/#giveaways',                         label: 'Giveaways' },
-    { href: 'https://www.whatnot.com/user/bannedproduct',  label: 'Whatnot', external: true },
-    { href: '/contact/',                                    label: 'Contact', cta: true },
+    { href: '/content/',                                         label: 'All Content' },
+    { href: '/podcast/',                                         label: 'Podcast' },
+    { href: '/blog/',                                            label: 'Blog' },
+    { href: '/content/#giveaways',                               label: 'Giveaways' },
+    { href: '/socials/',                                         label: 'Socials' },
+    { href: '/contact/',                                         label: 'Contact', cta: true },
   ];
 
-  const CONTENT_PATHS = ['/content', '/podcast', '/blog', '/giveaways'];
+  const CONTENT_PATHS = ['/content', '/podcast', '/blog', '/giveaways', '/socials'];
 
   function getBasePath() {
     const depth = (window.location.pathname.match(/\//g) || []).length;

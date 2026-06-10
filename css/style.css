@@ -706,6 +706,74 @@ ul { list-style: none; }
 }
 
 /* ============================================================
+   SOCIALS PAGE
+   ============================================================ */
+.socials-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 1.25rem;
+  margin-top: 3rem;
+}
+.social-card {
+  display: flex;
+  align-items: center;
+  gap: 1.25rem;
+  background: var(--gray-mid);
+  border: 1px solid var(--gray-light);
+  padding: 1.5rem;
+  text-decoration: none;
+  color: var(--white);
+  transition: border-color var(--transition), background var(--transition), transform var(--transition);
+  position: relative;
+}
+.social-card:hover {
+  border-color: var(--accent);
+  background: rgba(204,17,17,0.06);
+  transform: translateY(-2px);
+}
+.social-card-icon {
+  font-size: 1.8rem;
+  color: var(--accent);
+  flex-shrink: 0;
+  width: 2.5rem;
+  text-align: center;
+}
+.social-card-body {
+  flex: 1;
+}
+.social-card-body h3 {
+  font-family: var(--font-head);
+  font-size: 1rem;
+  letter-spacing: 0.08em;
+  margin-bottom: 0.3rem;
+  color: var(--white);
+}
+.social-card-body p {
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  line-height: 1.5;
+  margin-bottom: 0.4rem;
+}
+.social-card-handle {
+  font-family: var(--font-head);
+  font-size: 0.7rem;
+  letter-spacing: 0.12em;
+  color: var(--accent);
+  text-transform: uppercase;
+}
+.social-card-arrow {
+  color: var(--accent);
+  font-size: 1.2rem;
+  opacity: 0;
+  transition: opacity var(--transition), transform var(--transition);
+  flex-shrink: 0;
+}
+.social-card:hover .social-card-arrow {
+  opacity: 1;
+  transform: translateX(4px);
+}
+
+/* ============================================================
    TESTIMONIALS
    ============================================================ */
 .testimonials-grid {
