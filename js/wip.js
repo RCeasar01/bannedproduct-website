@@ -105,6 +105,7 @@
     const section  = main.getAttribute('data-wip-section') || 'This Section';
     const desc     = main.getAttribute('data-wip-desc')    || 'We\'re building something great here. Check back soon.';
     const icon     = main.getAttribute('data-wip-icon')    || '🔥';
+    const imgSrc   = main.getAttribute('data-wip-img')     || '';
     const eta      = main.getAttribute('data-wip-eta')     || '';
 
     // Inject scoped CSS
@@ -125,7 +126,10 @@
     main.innerHTML = `
       <div class="wip-section">
         <div class="wip-inner">
-          <span class="wip-icon">${icon}</span>
+          ${imgSrc
+            ? `<img src="${imgSrc}" alt="" class="wip-icon" style="width:160px;height:auto;display:block;margin:0 auto 1.5rem;filter:none;">`
+            : `<span class="wip-icon">${icon}</span>`
+          }
           <span class="wip-eyebrow">Coming Soon</span>
           <h1 class="wip-heading">${headingHTML}</h1>
           <div class="wip-bar"></div>
