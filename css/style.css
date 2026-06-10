@@ -245,32 +245,52 @@ ul { list-style: none; }
 .nav-cta:hover { background: var(--white); color: var(--black) !important; }
 .nav-cta::after { display: none; }
 
-/* ---- Mode toggle: BUSINESS | CONTENT ---- */
-.nav-mode-toggle {
+/* ---- Top mode bar: BUSINESS | CONTENT ---- */
+.mode-bar {
+  background: #0a0a0a;
+  border-bottom: 1px solid rgba(204,17,17,0.35);
+  width: 100%;
+}
+.mode-bar-inner {
   display: flex;
   align-items: center;
+  justify-content: space-between;
+  height: 36px;
+  max-width: var(--max-w);
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}
+.mode-bar-label {
+  font-family: var(--font-head);
+  font-size: 0.6rem;
+  letter-spacing: 0.2em;
+  color: var(--text-muted);
+  text-transform: uppercase;
+}
+.mode-bar-toggle {
+  display: flex;
+  align-items: center;
+  gap: 2px;
   background: var(--gray-light);
-  border: 1px solid rgba(255,255,255,0.08);
+  border: 1px solid rgba(255,255,255,0.06);
   border-radius: 2px;
   padding: 2px;
-  gap: 2px;
-  flex-shrink: 0;
 }
-.nav-mode-btn {
+.mode-bar-btn {
   font-family: var(--font-head);
-  font-size: 0.65rem;
+  font-size: 0.62rem;
   letter-spacing: 0.18em;
   color: var(--text-muted);
   text-decoration: none;
-  padding: 0.3em 0.85em;
+  padding: 0.25em 0.9em;
   border-radius: 2px;
   transition: background var(--transition), color var(--transition);
   white-space: nowrap;
 }
-.nav-mode-btn:hover { color: var(--white); }
-.nav-mode-btn.active {
+.mode-bar-btn:hover { color: var(--white); }
+.mode-bar-btn.active {
   background: var(--accent);
-  color: var(--white);
+  color: var(--white) !important;
 }
 
 .nav-hamburger {
@@ -296,7 +316,7 @@ ul { list-style: none; }
   .nav-links {
     display: none;
     position: fixed;
-    top: 70px; left: 0; right: 0;
+    top: 136px; left: 0; right: 0;
     background: var(--black);
     border-bottom: 2px solid var(--accent);
     flex-direction: column;
@@ -310,8 +330,8 @@ ul { list-style: none; }
   .nav-cta { margin-top: 1rem; }
 }
 
-/* Page content offset for fixed header */
-.page-offset { padding-top: 100px; }
+/* Page content offset for fixed header (36px mode bar + 100px nav) */
+.page-offset { padding-top: 136px; }
 
 /* ============================================================
    FOOTER

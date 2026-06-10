@@ -1,28 +1,27 @@
 /**
  * BannedProduct Media — Shared Header
- * Two-mode nav: BUSINESS (default) | CONTENT
- * Base URL always = business. /content/ and related = content mode.
+ * Top mode bar: BUSINESS | CONTENT
+ * Base URL / = business. /content/ and related paths = content mode.
  */
 (function () {
 
   const BIZ_LINKS = [
-    { href: '/',           label: 'Home' },
-    { href: '/about/',     label: 'About' },
-    { href: '/services/',  label: 'Services' },
-    { href: '/portfolio/', label: 'Work' },
-    { href: '/contact/',   label: 'Contact', cta: true },
+    { href: '/',          label: 'Home' },
+    { href: '/about/',    label: 'About' },
+    { href: '/services/', label: 'Services' },
+    { href: '/advocacy/', label: 'Advocacy' },
+    { href: '/contact/',  label: 'Contact', cta: true },
   ];
 
   const CONTENT_LINKS = [
-    { href: '/content/',                                        label: 'Hub' },
-    { href: '/podcast/',                                        label: 'Podcast' },
-    { href: '/blog/',                                           label: 'Blog' },
-    { href: '/content/#giveaways',                             label: 'Giveaways' },
-    { href: 'https://www.whatnot.com/user/bannedproduct',      label: 'Whatnot', external: true },
-    { href: '/contact/',                                        label: 'Contact', cta: true },
+    { href: '/content/',                                    label: 'All Content' },
+    { href: '/podcast/',                                    label: 'Podcast' },
+    { href: '/blog/',                                       label: 'Blog' },
+    { href: '/content/#giveaways',                         label: 'Giveaways' },
+    { href: 'https://www.whatnot.com/user/bannedproduct',  label: 'Whatnot', external: true },
+    { href: '/contact/',                                    label: 'Contact', cta: true },
   ];
 
-  // Content-mode pages — anything under these paths
   const CONTENT_PATHS = ['/content', '/podcast', '/blog', '/giveaways'];
 
   function getBasePath() {
@@ -33,11 +32,11 @@
   }
 
   function resolvePath(href) {
-    if (/^https?:\/\//.test(href)) return href; // external URLs unchanged
+    if (/^https?:\/\//.test(href)) return href;
     const base = getBasePath();
-    const rel = href.replace(/^\//, '').split('#');
-    const path = rel[0];
-    const hash = rel[1] ? '#' + rel[1] : '';
+    const parts = href.replace(/^\//, '').split('#');
+    const path  = parts[0];
+    const hash  = parts[1] ? '#' + parts[1] : '';
     if (!base) return (path || './') + hash;
     return base + '/' + path + hash;
   }
@@ -49,7 +48,7 @@
 
   function isActive(href) {
     if (/^https?:\/\//.test(href)) return false;
-    const p = window.location.pathname;
+    const p     = window.location.pathname;
     const clean = href.replace(/#.*$/, '');
     if (clean === '/') return p === '/' || (p.endsWith('/index.html') && p.split('/').length <= 3);
     return p.includes(clean.replace(/\/$/, ''));
@@ -60,7 +59,7 @@
     const links = mode === 'content' ? CONTENT_LINKS : BIZ_LINKS;
 
     const linksHTML = links.map(({ href, label, cta, external }) => {
-      const cls = [cta ? 'nav-cta' : '', isActive(href) ? 'active' : ''].filter(Boolean).join(' ');
+      const cls    = [cta ? 'nav-cta' : '', isActive(href) ? 'active' : ''].filter(Boolean).join(' ');
       const target = external ? ' target="_blank" rel="noopener"' : '';
       return `<a href="${resolvePath(href)}" class="${cls}"${target}>${label}</a>`;
     }).join('');
@@ -70,8 +69,20 @@
 
     return `
 <header id="site-header" role="banner">
-  <nav class="nav-inner" aria-label="Main navigation">
 
+  <!-- Mode bar -->
+  <div class="mode-bar">
+    <div class="mode-bar-inner">
+      <span class="mode-bar-label">BannedProduct Media Inc.</span>
+      <div class="mode-bar-toggle" role="group" aria-label="Site mode">
+        <a href="${bizHref}"     class="mode-bar-btn${mode === 'biz'     ? ' active' : ''}">&#9679; Business</a>
+        <a href="${contentHref}" class="mode-bar-btn${mode === 'content' ? ' active' : ''}">&#9679; Content</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Main nav -->
+  <nav class="nav-inner" aria-label="Main navigation">
     <a href="${bizHref}" class="nav-logo" aria-label="BannedProduct Media Home">
       <img
         src="${resolvePath('/images/logos/logo-website.png')}"
@@ -86,20 +97,14 @@
         <span class="logo-sub">MEDIA INC.</span>
       </span>
     </a>
-
-    <div class="nav-mode-toggle" role="group" aria-label="Site mode">
-      <a href="${bizHref}"     class="nav-mode-btn${mode === 'biz'     ? ' active' : ''}">BUSINESS</a>
-      <a href="${contentHref}" class="nav-mode-btn${mode === 'content' ? ' active' : ''}">CONTENT</a>
-    </div>
-
     <div class="nav-links" id="nav-links" role="list">
       ${linksHTML}
     </div>
-
     <button class="nav-hamburger" id="nav-toggle" aria-label="Toggle navigation" aria-expanded="false" aria-controls="nav-links">
       <span></span><span></span><span></span>
     </button>
   </nav>
+
 </header>`;
   }
 
@@ -111,7 +116,6 @@
       document.body.insertAdjacentHTML('afterbegin', buildHeader());
     }
 
-    // Mobile toggle
     const toggle = document.getElementById('nav-toggle');
     const links  = document.getElementById('nav-links');
     if (toggle && links) {
@@ -136,7 +140,6 @@
       });
     }
 
-    // Scroll shadow
     const header = document.getElementById('site-header');
     window.addEventListener('scroll', () => {
       header.style.boxShadow = window.scrollY > 20 ? '0 4px 30px rgba(204,17,17,0.15)' : 'none';
