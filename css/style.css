@@ -690,8 +690,8 @@ ul { list-style: none; }
   filter: grayscale(0%) brightness(1);
 }
 .client-logo {
-  max-height: 52px;
-  max-width: 180px;
+  max-height: 90px;
+  max-width: 240px;
   width: auto;
   display: block;
 }
