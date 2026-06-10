@@ -15,17 +15,19 @@
   ];
 
   function getBasePath() {
-    // Resolve root-relative paths when opened from file:// or sub-directories
+    // GitHub Pages serves from a subdirectory (e.g. /bannedproduct-website/)
+    // so depth=2 at the root — we need depth-2 levels of '..' to get back to site root
     const depth = (window.location.pathname.match(/\//g) || []).length;
-    if (depth <= 1) return '';
-    return Array(depth - 1).fill('..').join('/');
+    const levels = Math.max(0, depth - 2);
+    if (levels === 0) return '';
+    return Array(levels).fill('..').join('/');
   }
 
   function resolvePath(href) {
     const base = getBasePath();
-    if (!base) return href;
-    // Strip leading slash
-    return base + href;
+    const rel = href.replace(/^\//, ''); // strip leading slash
+    if (!base) return rel || './';
+    return base + '/' + rel;
   }
 
   function isActive(href) {

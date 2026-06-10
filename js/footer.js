@@ -6,20 +6,21 @@
   const YEAR = new Date().getFullYear();
 
   const SOCIAL = [
-    { icon: '▶', label: 'YouTube',   href: '#' },
-    { icon: '◉', label: 'Instagram', href: '#' },
-    { icon: '𝕏', label: 'X/Twitter', href: '#' },
-    { icon: '◈', label: 'TikTok',    href: '#' },
-    { icon: '⬡', label: 'Whatnot',   href: '#' },
-    { icon: '◎', label: 'LinkedIn',  href: '#' },
-    { icon: '◑', label: 'Facebook',  href: '#' },
+    { icon: '▶', label: 'YouTube',   href: 'https://www.youtube.com/@bannedproductmedia' },
+    { icon: '◉', label: 'Instagram', href: 'https://www.instagram.com/bannedproduct' },
+    { icon: '𝕏', label: 'X/Twitter', href: 'https://x.com/bannedproduct' },
+    { icon: '◈', label: 'TikTok',    href: 'https://www.tiktok.com/@bannedproduct' },
+    { icon: '⬡', label: 'Whatnot',   href: 'https://www.whatnot.com/user/bannedproduct' },
+    { icon: '◎', label: 'LinkedIn',  href: 'https://www.linkedin.com/company/bannedproduct-media' },
+    { icon: '◑', label: 'Facebook',  href: 'https://www.facebook.com/bannedproductmedia' },
   ];
 
   function resolvePath(href) {
     const depth = (window.location.pathname.match(/\//g) || []).length;
-    if (depth <= 1) return href;
-    const base = Array(depth - 1).fill('..').join('/');
-    return base + href;
+    const levels = Math.max(0, depth - 2);
+    const rel = href.replace(/^\//, '');
+    if (levels === 0) return rel || './';
+    return Array(levels).fill('..').join('/') + '/' + rel;
   }
 
   function buildFooter() {
