@@ -78,6 +78,7 @@
         <a href="${bizHref}"     class="mode-bar-btn${mode === 'biz'     ? ' active' : ''}">&#9679; Business</a>
         <a href="${contentHref}" class="mode-bar-btn${mode === 'content' ? ' active' : ''}">&#9679; Content</a>
       </div>
+      <a href="https://www.gofundme.com/f/veteran-in-need-of-help-at-risk-of-loosing-home-and-business" target="_blank" rel="noopener" class="mode-bar-donate">&#9829; Support / Donate</a>
     </div>
   </div>
 
