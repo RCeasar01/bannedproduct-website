@@ -2,7 +2,7 @@
  * BannedProduct Media — Page-level scripts
  */
 (function () {
-  // Contact form submission (static demo)
+  // Contact form submission via Formspree
   function initContactForm() {
     const form = document.getElementById('contact-form');
     if (!form) return;
@@ -12,20 +12,43 @@
       const original = btn.textContent;
       btn.textContent = 'SENDING...';
       btn.disabled = true;
-      setTimeout(() => {
-        btn.textContent = 'MESSAGE SENT!';
-        btn.style.background = '#22c55e';
-        btn.style.borderColor = '#22c55e';
-        btn.style.color = '#000';
-        form.reset();
-        setTimeout(() => {
-          btn.textContent = original;
-          btn.style.background = '';
-          btn.style.borderColor = '';
-          btn.style.color = '';
+
+      const data = new FormData(form);
+
+      fetch('https://formspree.io/f/xlgklnpr', {
+        method: 'POST',
+        body: data,
+        headers: { 'Accept': 'application/json' }
+      })
+      .then(function (res) {
+        if (res.ok) {
+          btn.textContent = 'MESSAGE SENT!';
+          btn.style.background = '#22c55e';
+          btn.style.borderColor = '#22c55e';
+          btn.style.color = '#000';
+          form.reset();
+          setTimeout(() => {
+            btn.textContent = original;
+            btn.style.background = '';
+            btn.style.borderColor = '';
+            btn.style.color = '';
+            btn.disabled = false;
+          }, 4000);
+        } else {
+          btn.textContent = 'ERROR — TRY AGAIN';
+          btn.style.background = '#cc1111';
+          btn.style.borderColor = '#cc1111';
+          btn.style.color = '#fff';
           btn.disabled = false;
-        }, 4000);
-      }, 1200);
+        }
+      })
+      .catch(function () {
+        btn.textContent = 'ERROR — TRY AGAIN';
+        btn.style.background = '#cc1111';
+        btn.style.borderColor = '#cc1111';
+        btn.style.color = '#fff';
+        btn.disabled = false;
+      });
     });
   }
 
