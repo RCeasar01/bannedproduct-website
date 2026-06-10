@@ -8,8 +8,8 @@
     { href: '/about/',     label: 'About' },
     { href: '/services/',  label: 'Services' },
     { href: '/portfolio/', label: 'Work' },
-    { href: '/content/',   label: 'Content' },
     { href: '/podcast/',   label: 'Podcast' },
+    { href: '/content/',   label: 'Content & Giveaways' },
     { href: '/contact/',   label: 'Contact', cta: true },
   ];
 
