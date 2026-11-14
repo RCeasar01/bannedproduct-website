@@ -64,7 +64,7 @@
           <li><a href="${resolvePath('/techcustoms/')}">Tech Customs</a></li>
           <li><a href="${resolvePath('/demos/')}">Live Demos</a></li>
           <li><a href="${resolvePath('/content/')}">Content Hub</a></li>
-          <li><a href="${resolvePath('/content/')}#giveaways">Giveaways</a></li>
+          <li><a href="${resolvePath('/giveaways/')}">Giveaways</a></li>
           <li><a href="${resolvePath('/contact/')}">Contact</a></li>
         </ul>
       </div>

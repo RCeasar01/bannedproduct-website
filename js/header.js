@@ -17,7 +17,7 @@
     { href: '/content/',                                         label: 'All Content' },
     { href: '/podcast/',                                         label: 'Podcast' },
     { href: '/blog/',                                            label: 'Blog' },
-    { href: '/content/#giveaways',                               label: 'Giveaways' },
+    { href: '/giveaways/',                               label: 'Giveaways' },
     { href: '/socials/',                                         label: 'Socials' },
     { href: '/contact/',                                         label: 'Contact', cta: true },
   ];
