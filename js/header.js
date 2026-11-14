@@ -6,11 +6,10 @@
 (function () {
 
   const BIZ_LINKS = [
-    { href: '/',          label: 'Home' },
-    { href: '/about/',    label: 'About' },
-    { href: '/services/', label: 'Services' },
-    { href: '/advocacy/', label: 'Advocacy' },
-    { href: '/contact/',  label: 'Contact', cta: true },
+    { href: '/services/',  label: 'Services' },
+    { href: '/portfolio/', label: 'Work' },
+    { href: '/about/',     label: 'About' },
+    { href: '/contact/',   label: 'Contact', cta: true },
   ];
 
   const CONTENT_LINKS = [
@@ -95,7 +94,7 @@
   <nav class="nav-inner" aria-label="Main navigation">
     <a href="${bizHref}" class="nav-logo" aria-label="BannedProduct Media Home">
       <img
-        src="${resolvePath('/images/logos/logo-website.png')}"
+        src="${resolvePath('/images/logos/logo-website-600.png')}"
         alt="BannedProduct Media Inc."
         class="nav-logo-img"
         onerror="this.style.display='none';this.nextElementSibling.style.display='flex';"

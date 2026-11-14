@@ -1313,3 +1313,8 @@ ul { list-style: none; }
    SELECTION
    ============================================================ */
 ::selection { background: var(--accent); color: var(--black); }
+
+/* ---- Top bar on phones: drop the company label so Support / Donate fits ---- */
+@media (max-width: 520px) {
+  .mode-bar-label { display: none; }
+}
