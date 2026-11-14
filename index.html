@@ -74,7 +74,7 @@
       <span class="hp-eyebrow">What clients say</span>
       <figure class="hp-quote-fig">
         <figcaption><a class="hp-quote-handle" id="hp-quote-handle" href="https://www.instagram.com/toniio_official" target="_blank" rel="noopener">@toniio_official<svg class="hp-verified" viewBox="0 0 24 24" role="img" aria-label="Verified on Instagram"><circle cx="12" cy="12" r="11" fill="#1d9bf0"/><path d="M7 12.5l3.2 3.2L17 9" fill="none" stroke="#fff" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg></a>:</figcaption>
-        <p class="hp-quote-role">International Reggaeton/Afrobeat recording artist</p>
+        <p class="hp-quote-role">International Reggaeton/Afrobeat Recording Artist</p>
         <blockquote id="hp-quote-text">
           <p>&ldquo;I met Robert on a beach in Puerto Rico while he was vacationing with his daughter. At the time, I was seriously considering quitting music because I was struggling to attract and keep followers.</p>
           <p>Robert offered to help as my consultant and influencer coach, and the results were incredible. In less than a year, my following grew from around 1,000 to over 100,000, and my music generated millions of streams.</p>
@@ -243,16 +243,5 @@
 <script src="/js/header.js"></script>
 <script src="/js/footer.js"></script>
 <script src="/js/main.js"></script>
-<script>
-  // Keep the testimonial no wider than three times the width of the @handle line.
-  (function () {
-    var h = document.getElementById('hp-quote-handle'), q = document.getElementById('hp-quote-text');
-    if (!h || !q) return;
-    function fit() { q.style.maxWidth = Math.round(h.getBoundingClientRect().width * 3) + 'px'; }
-    fit();
-    if (document.fonts && document.fonts.ready) document.fonts.ready.then(fit);
-    window.addEventListener('resize', fit);
-  })();
-</script>
 </body>
 </html>
