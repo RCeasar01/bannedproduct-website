@@ -332,3 +332,13 @@
   .hp-quote .hp-quote-fig blockquote { padding-left: 16px; }
   .hp-quote .hp-quote-fig blockquote p { font-size: 17px; }
 }
+
+/* ---- Testimonial row: quote on the left, his video on the right ---- */
+.hp-quote-row { display: flex; flex-wrap: wrap; align-items: flex-start; gap: 40px 64px; }
+.hp-quote-row .hp-quote-fig { flex: 0 1 auto; }
+.hp-quote-video { flex: 1 1 360px; max-width: 640px; display: flex; flex-direction: column; gap: 16px; }
+.hp-video-frame { position: relative; width: 100%; aspect-ratio: 16 / 9; background: #000; border: 1px solid var(--hp-line); box-shadow: 12px 12px 0 var(--hp-red); margin-bottom: 12px; }
+.hp-video-frame iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; }
+@media (max-width: 640px) {
+  .hp-video-frame { box-shadow: 8px 8px 0 var(--hp-red); width: calc(100% - 8px); }
+}
