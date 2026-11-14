@@ -314,3 +314,19 @@
   .hp-quote blockquote { padding-left: 18px; }
   .hp-quote blockquote p { font-size: 18px; }
 }
+
+/* ---- Testimonial, "@handle: quote" format; width is set from the handle by a small script ---- */
+.hp-quote-fig { margin: 0; display: flex; flex-direction: column; gap: 16px; align-items: flex-start; }
+.hp-quote-fig figcaption { font-family: var(--font-head); font-size: 30px; letter-spacing: 0.04em; color: #fff; }
+.hp-quote-handle { display: inline-flex; align-items: center; gap: 8px; color: #fff; text-decoration: none; }
+.hp-quote-handle:hover { color: var(--hp-gold-light); }
+.hp-verified { width: 24px; height: 24px; flex: none; }
+.hp-quote-role { margin: -10px 0 0; font-size: 15px; color: var(--hp-muted); }
+.hp-quote .hp-quote-fig blockquote { max-width: 42rem; border-left: 4px solid var(--hp-red); padding-left: 24px; }
+.hp-quote .hp-quote-fig blockquote p { font-size: 19px; }
+.hp-trusted-row .hp-trusted-person img { border-radius: 50%; filter: none; opacity: 1; border: 2px solid var(--hp-gold); }
+@media (max-width: 640px) {
+  .hp-quote-fig figcaption { font-size: 26px; }
+  .hp-quote .hp-quote-fig blockquote { padding-left: 16px; }
+  .hp-quote .hp-quote-fig blockquote p { font-size: 17px; }
+}

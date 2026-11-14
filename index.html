@@ -64,6 +64,7 @@
       <span class="hp-eyebrow">Trusted by</span>
       <a href="https://venturetechnologies.org/" target="_blank" rel="noopener"><img src="/images/clients/venture-technologies.png" alt="Venture Technologies" loading="lazy"></a>
       <a href="https://saeedslkn.com" target="_blank" rel="noopener"><img src="/images/clients/saeeds-lkn-400.png" alt="Saeed's Bar and Grill" loading="lazy"></a>
+      <a class="hp-trusted-person" href="https://www.instagram.com/toniio_official" target="_blank" rel="noopener"><img src="/images/clients/toniio.png" width="188" height="188" alt="Toniio (@toniio_official) on Instagram" loading="lazy"></a>
     </div>
   </section>
 
@@ -71,15 +72,16 @@
   <section class="hp-quote" aria-label="Client testimonial">
     <div class="hp-wrap hp-quote-inner">
       <span class="hp-eyebrow">What clients say</span>
-      <blockquote>
-        <p>Robert offered to help as my consultant and influencer coach, and the results were incredible. In less than a year, my following grew from around 1,000 to over 100,000, and my music generated millions of streams.</p>
-        <p>He's knowledgeable, easy to work with, and genuinely invested in your success. I highly recommend him to any artist looking to grow their brand and take their career to the next level!</p>
-        <footer>
-          <strong>Toniio</strong>
-          <span>Singer-songwriter · @toniio_official</span>
-          <a class="hp-link" href="https://www.instagram.com/toniio_official" target="_blank" rel="noopener">Check him out on Instagram</a>
-        </footer>
-      </blockquote>
+      <figure class="hp-quote-fig">
+        <figcaption><a class="hp-quote-handle" id="hp-quote-handle" href="https://www.instagram.com/toniio_official" target="_blank" rel="noopener">@toniio_official<svg class="hp-verified" viewBox="0 0 24 24" role="img" aria-label="Verified on Instagram"><circle cx="12" cy="12" r="11" fill="#1d9bf0"/><path d="M7 12.5l3.2 3.2L17 9" fill="none" stroke="#fff" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg></a>:</figcaption>
+        <p class="hp-quote-role">International Reggaeton/Afrobeat recording artist</p>
+        <blockquote id="hp-quote-text">
+          <p>&ldquo;I met Robert on a beach in Puerto Rico while he was vacationing with his daughter. At the time, I was seriously considering quitting music because I was struggling to attract and keep followers.</p>
+          <p>Robert offered to help as my consultant and influencer coach, and the results were incredible. In less than a year, my following grew from around 1,000 to over 100,000, and my music generated millions of streams.</p>
+          <p>He's knowledgeable, easy to work with, and genuinely invested in your success. I highly recommend him to any artist looking to grow their brand and take their career to the next level!&rdquo;</p>
+        </blockquote>
+        <a class="hp-link" href="https://www.instagram.com/toniio_official" target="_blank" rel="noopener">Check him out on Instagram</a>
+      </figure>
     </div>
   </section>
 
@@ -241,5 +243,16 @@
 <script src="/js/header.js"></script>
 <script src="/js/footer.js"></script>
 <script src="/js/main.js"></script>
+<script>
+  // Keep the testimonial no wider than three times the width of the @handle line.
+  (function () {
+    var h = document.getElementById('hp-quote-handle'), q = document.getElementById('hp-quote-text');
+    if (!h || !q) return;
+    function fit() { q.style.maxWidth = Math.round(h.getBoundingClientRect().width * 3) + 'px'; }
+    fit();
+    if (document.fonts && document.fonts.ready) document.fonts.ready.then(fit);
+    window.addEventListener('resize', fit);
+  })();
+</script>
 </body>
 </html>
