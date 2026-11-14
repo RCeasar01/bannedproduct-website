@@ -8,6 +8,8 @@
     if (!form) return;
     form.addEventListener('submit', function (e) {
       e.preventDefault();
+      // The form is marked novalidate, so check required fields here before sending.
+      if (!form.checkValidity()) { form.reportValidity(); return; }
       const btn = form.querySelector('[type=submit]');
       const original = btn.textContent;
       btn.textContent = 'SENDING...';

@@ -241,13 +241,28 @@
 <script>
   document.getElementById('quote-form').addEventListener('submit', function(e) {
     e.preventDefault();
+    // The form is marked novalidate, so check required fields here before sending.
+    if (!this.checkValidity()) { this.reportValidity(); return; }
     const btn = this.querySelector('[type=submit]');
     btn.textContent = 'SENDING...';
     btn.disabled = true;
-    setTimeout(() => {
-      this.style.display = 'none';
+    const form = this;
+    const data = new FormData(form);
+    data.append('_subject', 'New quote request — bannedproductmedia.com');
+    fetch('https://formspree.io/f/xlgklnpr', {
+      method: 'POST',
+      body: data,
+      headers: { 'Accept': 'application/json' }
+    })
+    .then(function (res) {
+      if (!res.ok) throw new Error('send failed');
+      form.style.display = 'none';
       document.getElementById('quote-success').style.display = 'block';
-    }, 1000);
+    })
+    .catch(function () {
+      btn.textContent = 'ERROR — TRY AGAIN OR CALL 704-835-8274';
+      btn.disabled = false;
+    });
   });
 </script>
 </body>

@@ -16,6 +16,9 @@
   ];
 
   function resolvePath(href) {
+    // Site is served from the domain root, so root-absolute paths work from every page.
+    // (The old depth-based version produced "about/" on /services/, which 404'd.)
+    if (!window.location.hostname.includes('github.io')) return href;
     const depth = (window.location.pathname.match(/\//g) || []).length;
     const levels = Math.max(0, depth - 2);
     const rel = href.replace(/^\//, '');
