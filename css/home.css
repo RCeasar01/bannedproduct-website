@@ -321,6 +321,8 @@
 .hp-quote-handle { display: inline-flex; align-items: center; gap: 8px; color: #fff; text-decoration: none; }
 .hp-quote-handle:hover { color: var(--hp-gold-light); }
 .hp-verified { width: 24px; height: 24px; flex: none; }
+.hp-quote-press { margin: 0; max-width: 4in; font-size: 15px; color: var(--hp-muted); }
+.hp-quote-press a { color: var(--hp-gold-light); }
 .hp-quote-role { margin: -12px 0 0; font-size: 15px; color: var(--hp-muted); }
 .hp-quote .hp-quote-fig blockquote { max-width: 4in; /* 4 inches = 384px */ border-left: 4px solid var(--hp-red); padding-left: 24px; }
 .hp-quote .hp-quote-fig blockquote p { font-size: 17px; }
