@@ -8,6 +8,7 @@
   const BIZ_LINKS = [
     { href: '/services/',  label: 'Services' },
     { href: '/portfolio/', label: 'Work' },
+    { href: '/techcustoms/', label: 'Tech Customs' },
     { href: '/about/',     label: 'About' },
     { href: '/contact/',   label: 'Contact', cta: true },
   ];

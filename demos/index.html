@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Working examples of what BannedProduct Media builds into websites and web apps: instant search, online booking and live dashboards.">
+  <meta property="og:title" content="Live Web App Demos | BannedProduct Media Inc.">
+  <meta property="og:description" content="Working examples of what BannedProduct Media builds into websites and web apps: instant search, online booking and live dashboards.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://bannedproductmedia.com/demos/">
+  <meta property="og:image" content="https://bannedproductmedia.com/images/logos/logo-website-600.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="https://bannedproductmedia.com/images/logos/logo-website-600.png">
+  <link rel="canonical" href="https://bannedproductmedia.com/demos/">
+  <link rel="icon" type="image/png" href="/images/logos/logo-website-600.png">
+  <title>Live Web App Demos | BannedProduct Media Inc.</title>
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="stylesheet" href="/css/home.css">
+</head>
+<body>
+
+<div id="header-placeholder"></div>
+
+<main class="page-offset hp">
+
+  <section class="hp-hero" aria-label="Introduction">
+    <div class="hp-wrap hp-page-hero-grid" style="grid-template-columns: 1fr;">
+      <div class="hp-page-hero-copy">
+        <span class="hp-eyebrow">Live demos</span>
+        <h1 class="hp-h1" style="font-size: clamp(3rem, 5.6vw, 5rem);">Don't take our word. <em>Click it.</em></h1>
+        <p>These are working examples of what we build into websites and web apps. Everything below runs on sample data.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="hp-band hp-band--alt" aria-label="Demos">
+    <div class="hp-wrap hp-band-inner">
+      <div class="hp-cards hp-cards--three" style="align-items: start;">
+
+        <article class="hp-demo" id="demo-search">
+          <span class="hp-eyebrow">Demo 01</span>
+          <h2>Instant search &amp; filters</h2>
+          <p>Customers find what they need without a page reload.</p>
+          <div>
+            <label for="demo-q">Search the sample catalog</label>
+            <input id="demo-q" type="text" placeholder="Try: shirt" autocomplete="off">
+          </div>
+          <div class="hp-pills" id="demo-cats" role="group" aria-label="Category"></div>
+          <div class="hp-demo-count" id="demo-count" aria-live="polite"></div>
+          <ul class="hp-demo-list" id="demo-results"></ul>
+        </article>
+
+        <article class="hp-demo" id="demo-booking">
+          <span class="hp-eyebrow">Demo 02</span>
+          <h2>Online booking</h2>
+          <p>Let clients pick a time and confirm without a phone call.</p>
+          <span class="hp-demo-label">1. Pick a day</span>
+          <div class="hp-pills" id="demo-days" role="group" aria-label="Day"></div>
+          <span class="hp-demo-label">2. Pick a time</span>
+          <div class="hp-pills" id="demo-slots" role="group" aria-label="Time"></div>
+          <button type="button" class="hp-demo-go" id="demo-confirm">Confirm booking</button>
+          <div class="hp-demo-status" id="demo-status" aria-live="polite"></div>
+          <button type="button" class="hp-demo-reset" id="demo-reset">Reset</button>
+        </article>
+
+        <article class="hp-demo" id="demo-dash">
+          <span class="hp-eyebrow">Demo 03</span>
+          <h2>Live dashboard</h2>
+          <p>Your numbers in one place, switching views instantly.</p>
+          <div class="hp-pills" id="demo-metrics" role="group" aria-label="Metric"></div>
+          <div class="hp-demo-total"><strong id="demo-total"></strong><span id="demo-total-label"></span></div>
+          <div class="hp-chart" id="demo-chart" role="img" aria-label="Bar chart of sample daily values"></div>
+          <div class="hp-chart-days" aria-hidden="true"><span>M</span><span>T</span><span>W</span><span>T</span><span>F</span><span>S</span><span>S</span></div>
+          <p class="hp-note">Sample data for demonstration only.</p>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <div class="hp-stripe" aria-hidden="true"></div>
+  <section class="hp-contact" aria-label="Contact">
+    <div class="hp-wrap hp-contact-inner">
+      <h2 class="hp-h2">Want one built for your business?</h2>
+      <p>Tell us what you need. We reply within 24 hours on business days.</p>
+      <a class="hp-btn hp-btn--white" href="/contact/">Start a Project</a>
+      <div class="hp-contact-lines">
+        <a href="tel:+17048358274">704-835-8274</a>
+        <a href="mailto:contact@bannedproductmedia.com">contact@bannedproductmedia.com</a>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<div id="footer-placeholder"></div>
+<script src="/js/header.js"></script>
+<script src="/js/footer.js"></script>
+<script src="/js/main.js"></script>
+<script>
+(function () {
+  function pills(el, labels, current, onPick) {
+    el.innerHTML = '';
+    labels.forEach(function (label) {
+      var b = document.createElement('button');
+      b.type = 'button'; b.className = 'hp-pill'; b.textContent = label;
+      b.setAttribute('aria-pressed', String(label === current));
+      b.addEventListener('click', function () { onPick(label); });
+      el.appendChild(b);
+    });
+  }
+
+  // Demo 01: search and filters
+  var items = [
+    ['Logo T-shirt', 'Apparel'], ['Pullover hoodie', 'Apparel'], ['Snapback hat', 'Apparel'],
+    ['Die-cut sticker pack', 'Stickers'], ['Bumper sticker', 'Stickers'],
+    ['Signed poster', 'Prints'], ['Canvas print', 'Prints'], ['Logo keychain', 'Tech Customs']
+  ];
+  var cat = 'All', q = document.getElementById('demo-q');
+  function drawSearch() {
+    var term = q.value.trim().toLowerCase();
+    var hits = items.filter(function (it) {
+      return (cat === 'All' || it[1] === cat) && (!term || it[0].toLowerCase().indexOf(term) !== -1);
+    });
+    pills(document.getElementById('demo-cats'), ['All', 'Apparel', 'Stickers', 'Prints', 'Tech Customs'], cat, function (c) { cat = c; drawSearch(); });
+    document.getElementById('demo-count').textContent = hits.length + ' of ' + items.length + ' items shown';
+    var list = document.getElementById('demo-results'); list.innerHTML = '';
+    hits.forEach(function (it) {
+      var li = document.createElement('li'), a = document.createElement('strong'), b = document.createElement('span');
+      a.textContent = it[0]; b.textContent = it[1]; li.appendChild(a); li.appendChild(b); list.appendChild(li);
+    });
+  }
+  q.addEventListener('input', drawSearch);
+  drawSearch();
+
+  // Demo 02: booking
+  var day = '', slot = '', booked = false;
+  function drawBooking() {
+    pills(document.getElementById('demo-days'), ['Mon', 'Tue', 'Wed', 'Thu', 'Fri'], day, function (d) { day = d; booked = false; drawBooking(); });
+    pills(document.getElementById('demo-slots'), ['9:00 AM', '11:30 AM', '2:00 PM', '4:30 PM'], slot, function (s) { slot = s; booked = false; drawBooking(); });
+    var msg = 'Pick a day and a time, then confirm.';
+    if (booked) msg = 'Booked: ' + day + ' at ' + slot + '. A confirmation email would go out here.';
+    else if (day && slot) msg = 'Selected: ' + day + ' at ' + slot + '.';
+    document.getElementById('demo-status').textContent = msg;
+  }
+  document.getElementById('demo-confirm').addEventListener('click', function () { if (day && slot) { booked = true; drawBooking(); } });
+  document.getElementById('demo-reset').addEventListener('click', function () { day = ''; slot = ''; booked = false; drawBooking(); });
+  drawBooking();
+
+  // Demo 03: dashboard
+  var data = { Visitors: [320, 410, 380, 520, 610, 470, 690], Leads: [12, 18, 15, 22, 31, 19, 27], Sales: [3, 5, 4, 7, 9, 6, 8] };
+  var metric = 'Visitors', chart = document.getElementById('demo-chart');
+  for (var i = 0; i < 7; i++) chart.appendChild(document.createElement('div'));
+  function drawDash() {
+    pills(document.getElementById('demo-metrics'), ['Visitors', 'Leads', 'Sales'], metric, function (m) { metric = m; drawDash(); });
+    var vals = data[metric], max = Math.max.apply(null, vals), sum = 0;
+    vals.forEach(function (v, i) { sum += v; chart.children[i].style.height = Math.round(v / max * 100) + '%'; });
+    document.getElementById('demo-total').textContent = sum;
+    document.getElementById('demo-total-label').textContent = metric.toLowerCase() + ' this week (sample)';
+  }
+  drawDash();
+})();
+</script>
+</body>
+</html>

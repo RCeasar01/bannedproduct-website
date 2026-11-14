@@ -1318,3 +1318,12 @@ ul { list-style: none; }
 @media (max-width: 520px) {
   .mode-bar-label { display: none; }
 }
+
+/* ---- Footer: logo image and text social links (replaces abstract glyph icons) ---- */
+.footer-brand .nav-logo-img { height: 60px; width: auto; }
+.footer-social { gap: 0.5rem; }
+.footer-social a {
+  width: auto; height: auto; padding: 6px 10px;
+  font-size: 0.72rem; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase;
+  color: #c4c4c4;
+}

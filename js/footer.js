@@ -13,6 +13,7 @@
     { icon: '⬡', label: 'Whatnot',   href: 'https://www.whatnot.com/user/bannedproduct' },
     { icon: '◎', label: 'LinkedIn',  href: 'https://www.linkedin.com/in/robertceasar/' },
     { icon: '◑', label: 'Facebook',  href: 'https://www.facebook.com/robert.ceasar1/' },
+    { icon: '◈', label: 'Discord',   href: 'https://discord.gg/9qM6aBw9Eq' },
   ];
 
   function resolvePath(href) {
@@ -28,7 +29,7 @@
 
   function buildFooter() {
     const socialHTML = SOCIAL.map(({ icon, label, href }) =>
-      `<a href="${href}" aria-label="${label}" title="${label}">${icon}</a>`
+      `<a href="${href}" target="_blank" rel="noopener">${label}</a>`
     ).join('');
 
     return `
@@ -36,7 +37,7 @@
   <div class="container">
     <div class="footer-grid">
       <div class="footer-brand">
-        <a href="${resolvePath('/')}" class="nav-logo">BANNED<span>PRODUCT</span></a>
+        <a href="${resolvePath('/')}" class="nav-logo" aria-label="BannedProduct Media Home"><img class="nav-logo-img" src="${resolvePath('/images/logos/logo-website-cropped.png')}" alt="BannedProduct Media Inc." width="640" height="193" style="height:64px;width:auto;"></a>
         <p>A veteran-owned media &amp; IT company delivering bold content, cutting-edge technology, and authentic storytelling. We build brands that cannot be silenced.</p>
         <div class="footer-social" aria-label="Social media links">
           ${socialHTML}
@@ -46,12 +47,12 @@
       <div class="footer-col">
         <h4>Services</h4>
         <ul>
+          <li><a href="${resolvePath('/services/')}#web">Websites &amp; Web Apps</a></li>
+          <li><a href="${resolvePath('/services/')}#apps">Mobile Apps</a></li>
+          <li><a href="${resolvePath('/services/')}#ai">AI &amp; Automation</a></li>
           <li><a href="${resolvePath('/services/')}#podcast">Podcast Production</a></li>
           <li><a href="${resolvePath('/services/')}#video">Video Production</a></li>
           <li><a href="${resolvePath('/services/')}#livestream">Livestream</a></li>
-          <li><a href="${resolvePath('/services/')}#web">Web Development</a></li>
-          <li><a href="${resolvePath('/services/')}#bi">Business Intelligence</a></li>
-          <li><a href="${resolvePath('/services/')}#ai">AI &amp; Automation</a></li>
         </ul>
       </div>
 
@@ -60,8 +61,8 @@
         <ul>
           <li><a href="${resolvePath('/about/')}">About Us</a></li>
           <li><a href="${resolvePath('/portfolio/')}">Work</a></li>
-          <li><a href="${resolvePath('/podcast/')}">Podcast</a></li>
-          <li><a href="${resolvePath('/blog/')}">Blog</a></li>
+          <li><a href="${resolvePath('/techcustoms/')}">Tech Customs</a></li>
+          <li><a href="${resolvePath('/demos/')}">Live Demos</a></li>
           <li><a href="${resolvePath('/content/')}">Content Hub</a></li>
           <li><a href="${resolvePath('/content/')}#giveaways">Giveaways</a></li>
           <li><a href="${resolvePath('/contact/')}">Contact</a></li>
