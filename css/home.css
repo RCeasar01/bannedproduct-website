@@ -299,3 +299,18 @@
 @media (max-width: 640px) {
   .hp-founder-grid { padding-top: 64px; padding-bottom: 56px; gap: 40px; }
 }
+
+/* ---- Client testimonial ---- */
+.hp-quote { background: var(--hp-panel); border-top: 1px solid #2a2a2a; }
+.hp-quote-inner { padding-top: 72px; padding-bottom: 72px; display: flex; flex-direction: column; gap: 20px; }
+.hp-quote blockquote { margin: 0; max-width: 920px; border-left: 4px solid var(--hp-red); padding-left: 28px; display: flex; flex-direction: column; gap: 16px; }
+.hp-quote blockquote p { margin: 0; font-size: 21px; line-height: 1.55; color: #f2f2f2; }
+.hp-quote blockquote footer { display: flex; flex-direction: column; gap: 2px; margin-top: 8px; }
+.hp-quote blockquote footer strong { font-family: var(--font-head); font-weight: 400; font-size: 24px; letter-spacing: 0.06em; text-transform: uppercase; color: #fff; }
+.hp-quote blockquote footer span { font-size: 15px; color: var(--hp-muted); }
+.hp-quote blockquote footer a { color: var(--hp-gold-light); }
+@media (max-width: 640px) {
+  .hp-quote-inner { padding-top: 48px; padding-bottom: 48px; }
+  .hp-quote blockquote { padding-left: 18px; }
+  .hp-quote blockquote p { font-size: 18px; }
+}
