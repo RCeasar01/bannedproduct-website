@@ -16,13 +16,12 @@
   const CONTENT_LINKS = [
     { href: '/content/',                                         label: 'All Content' },
     { href: '/podcast/',                                         label: 'Podcast' },
-    { href: '/blog/',                                            label: 'Blog' },
     { href: '/giveaways/',                               label: 'Giveaways' },
     { href: '/socials/',                                         label: 'Socials' },
     { href: '/contact/',                                         label: 'Contact', cta: true },
   ];
 
-  const CONTENT_PATHS = ['/content', '/podcast', '/blog', '/giveaways', '/socials'];
+  const CONTENT_PATHS = ['/content', '/podcast', '/giveaways', '/socials'];
 
   function isRootHosted() {
     // Custom domain or localhost — site lives at root, absolute paths work as-is
