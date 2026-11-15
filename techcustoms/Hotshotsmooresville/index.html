@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <meta name="robots" content="noindex, nofollow">
+  <meta name="theme-color" content="#0b0b0b">
+  <title>Hotshots Sports Bar &amp; Grill — Mooresville</title>
+  <meta name="description" content="Hotshots Sports Bar & Grill, Mooresville NC: call, directions, menu, online ordering and more.">
+  <link rel="icon" href="/favicon.ico" sizes="any">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Anton&family=Montserrat:wght@500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root { --red: #d71920; --gold: #f2b134; --ground: #0b0b0b; --card: #181818; --line: #2e2e2e; --text: #e8e8e8; --muted: #a9a9a9; }
+    * { box-sizing: border-box; }
+    html, body { margin: 0; background: var(--ground); color: var(--text); font-family: 'Montserrat', system-ui, sans-serif; -webkit-font-smoothing: antialiased; }
+    body {
+      min-height: 100vh;
+      background-image: radial-gradient(ellipse at 50% -10%, rgba(215,25,32,0.35), rgba(215,25,32,0) 60%),
+        linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px);
+      background-size: 100% 100%, 44px 44px, 44px 44px;
+    }
+    .wrap { max-width: 480px; margin: 0 auto; padding: calc(36px + env(safe-area-inset-top)) 20px calc(40px + env(safe-area-inset-bottom)); display: flex; flex-direction: column; gap: 22px; }
+    header { text-align: center; display: flex; flex-direction: column; align-items: center; gap: 10px; }
+    .badge { width: 92px; height: 92px; border-radius: 50%; display: grid; place-items: center; background: var(--red); border: 3px solid var(--gold); box-shadow: 0 0 0 6px rgba(215,25,32,0.18), 0 14px 30px rgba(0,0,0,0.6); font-family: 'Anton', sans-serif; font-size: 40px; color: #fff; letter-spacing: 0.02em; }
+    h1 { margin: 6px 0 0; font-family: 'Anton', sans-serif; font-weight: 400; font-size: 44px; line-height: 1; letter-spacing: 0.02em; text-transform: uppercase; color: #fff; }
+    .sub { margin: 0; font-weight: 700; font-size: 13px; letter-spacing: 0.22em; text-transform: uppercase; color: var(--gold); }
+    .tag { margin: 2px 0 0; font-size: 15px; color: var(--muted); }
+    .status { display: inline-flex; align-items: center; gap: 8px; margin-top: 4px; padding: 7px 14px; border: 1px solid var(--line); background: #121212; font-size: 13px; font-weight: 600; letter-spacing: 0.06em; }
+    .status i { width: 9px; height: 9px; border-radius: 50%; background: #777; }
+    .status.open i { background: #2ecc71; box-shadow: 0 0 10px #2ecc71; }
+    .status.closed i { background: var(--red); }
+    .primary { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+    .btn { display: flex; align-items: center; gap: 14px; padding: 16px 18px; min-height: 60px; text-decoration: none; color: #fff; background: var(--card); border: 1px solid var(--line); font-weight: 700; font-size: 16px; transition: transform 0.15s ease, border-color 0.15s ease, background 0.15s ease; }
+    .btn:active { transform: scale(0.98); }
+    .btn:hover, .btn:focus-visible { border-color: var(--gold); outline: none; }
+    .btn svg { flex: none; width: 24px; height: 24px; }
+    .btn span { flex: 1; }
+    .btn small { display: block; font-weight: 500; font-size: 12.5px; color: var(--muted); margin-top: 2px; }
+    .btn .arrow { flex: none; color: var(--gold); font-size: 18px; }
+    .primary .btn { flex-direction: column; justify-content: center; text-align: center; gap: 8px; min-height: 96px; font-family: 'Anton', sans-serif; font-weight: 400; font-size: 20px; letter-spacing: 0.06em; text-transform: uppercase; }
+    .primary .btn svg { width: 28px; height: 28px; }
+    .btn--red { background: var(--red); border-color: var(--red); }
+    .btn--red:hover, .btn--red:focus-visible { background: #b8141a; border-color: var(--gold); }
+    .btn--wide { grid-column: 1 / -1; }
+    .list { display: flex; flex-direction: column; gap: 10px; }
+    h2 { margin: 6px 0 -4px; font-weight: 700; font-size: 12px; letter-spacing: 0.24em; text-transform: uppercase; color: var(--gold); }
+    .hours { background: var(--card); border: 1px solid var(--line); border-top: 3px solid var(--gold); padding: 16px 18px; display: grid; grid-template-columns: 1fr auto; gap: 8px 12px; font-size: 15px; }
+    .hours dt { color: var(--muted); } .hours dd { margin: 0; font-weight: 600; color: #fff; text-align: right; }
+    .addr { margin: 0; text-align: center; font-size: 14px; color: var(--muted); line-height: 1.6; }
+    footer { margin-top: 10px; text-align: center; font-size: 12px; color: #777; }
+    footer a { color: #9a9a9a; }
+    @media (max-width: 360px) { h1 { font-size: 36px; } .primary .btn { font-size: 17px; } }
+  </style>
+</head>
+<body>
+  <main class="wrap">
+    <header>
+      <div class="badge" aria-hidden="true">HS</div>
+      <h1>Hotshots</h1>
+      <p class="sub">Sports Bar &amp; Grill · Mooresville</p>
+      <p class="tag">All the games. All the time.</p>
+      <div class="status" id="status" aria-live="polite"><i></i><b>Mon–Sat 11AM–1AM · Sun 12PM–1AM</b></div>
+    </header>
+
+    <nav class="primary" aria-label="Quick actions">
+      <a class="btn btn--red" href="tel:+17047990748">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.8.7 2.7a2 2 0 0 1-.5 2.1L8 9.8a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.7.7a2 2 0 0 1 1.7 2z"/></svg>
+        Call
+      </a>
+      <a class="btn" href="https://www.google.com/maps/search/?api=1&amp;query=Hotshots+Sports+Bar+%26+Grill+247+East+Plaza+Drive+Mooresville+NC+28115" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22s-7-6.2-7-12a7 7 0 0 1 14 0c0 5.8-7 12-7 12z"/><circle cx="12" cy="10" r="2.5"/></svg>
+        Directions
+      </a>
+      <a class="btn btn--wide" href="https://order.online/store/~696412/?hideModal=true" target="_blank" rel="noopener" style="border-color:var(--gold);">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><path d="M3 6h18"/><path d="M16 10a4 4 0 0 1-8 0"/></svg>
+        Order online
+      </a>
+    </nav>
+
+    <h2>Food &amp; drink</h2>
+    <div class="list">
+      <a class="btn" href="https://hotshotsnet.com/menu/" target="_blank" rel="noopener"><span>Menu<small>Wings, burgers, St. Louis–style pizza &amp; more</small></span><b class="arrow">→</b></a>
+      <a class="btn" href="https://hotshotsnet.com/daily-lunch-special/" target="_blank" rel="noopener"><span>Daily lunch specials</span><b class="arrow">→</b></a>
+      <a class="btn" href="https://hotshotsnet.com/wp-content/uploads/2025-Hotshots-Bulk-Menu.pdf" target="_blank" rel="noopener"><span>Party &amp; carry-out menu<small>PDF</small></span><b class="arrow">→</b></a>
+    </div>
+
+    <h2>Follow &amp; review</h2>
+    <div class="list">
+      <a class="btn" href="https://www.facebook.com/HotShotsMooresville" target="_blank" rel="noopener"><span>Facebook<small>Hotshots Mooresville</small></span><b class="arrow">→</b></a>
+      <a class="btn" href="https://www.instagram.com/hotshots_bar/" target="_blank" rel="noopener"><span>Instagram<small>@hotshots_bar</small></span><b class="arrow">→</b></a>
+      <a class="btn" href="https://www.yelp.com/biz/hotshots-sports-bar-and-grill-mooresville-mooresville" target="_blank" rel="noopener"><span>Leave a review<small>Yelp</small></span><b class="arrow">→</b></a>
+      <a class="btn" href="hotshots-mooresville.vcf" download><span>Save our contact<small>Adds us to your phone</small></span><b class="arrow">+</b></a>
+    </div>
+
+    <h2>Hours</h2>
+    <dl class="hours">
+      <dt>Monday – Saturday</dt><dd>11AM – 1AM</dd>
+      <dt>Sunday</dt><dd>12PM – 1AM</dd>
+    </dl>
+    <p class="addr">247 East Plaza Drive<br>Mooresville, NC 28115<br><a href="tel:+17047990748" style="color:#fff;font-weight:600;text-decoration:none;">(704) 799-0748</a></p>
+
+    <footer>Tap tag by <a href="/techcustoms/">BannedProduct Tech Customs™</a></footer>
+  </main>
+  <script>
+    // Open / closed badge, using Mooresville (Eastern) time. Closes at 1AM, so 12AM–1AM counts as open.
+    (function () {
+      try {
+        var parts = new Intl.DateTimeFormat('en-US', { timeZone: 'America/New_York', weekday: 'short', hour: 'numeric', hour12: false }).formatToParts(new Date());
+        var day = '', hour = 0;
+        parts.forEach(function (p) { if (p.type === 'weekday') day = p.value; if (p.type === 'hour') hour = parseInt(p.value, 10) % 24; });
+        var openHour = day === 'Sun' ? 12 : 11;
+        var open = hour >= openHour || hour < 1;
+        var el = document.getElementById('status');
+        el.className = 'status ' + (open ? 'open' : 'closed');
+        el.querySelector('b').textContent = open ? 'Open now · until 1AM' : 'Closed · opens ' + (openHour === 12 ? '12PM' : '11AM');
+      } catch (e) { /* keep the static hours text */ }
+    })();
+  </script>
+</body>
+</html>
