@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <meta name="robots" content="noindex, nofollow">
+  <meta name="theme-color" content="#0d0f0b">
+  <title>KB32 Tactical — @kotaboy32</title>
+  <meta name="description" content="KB32 Tactical on YouTube: range days, in-depth gear reviews and beginner guides.">
+  <link rel="icon" href="/favicon.ico" sizes="any">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Anton&family=Montserrat:wght@500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root { --tan: #d2b37a; --olive: #5b6b3a; --red: #e01e1e; --ground: #0d0f0b; --card: #171a14; --line: #2f3428; --text: #e7e6df; --muted: #a7a89c; }
+    * { box-sizing: border-box; }
+    html, body { margin: 0; background: var(--ground); color: var(--text); font-family: 'Montserrat', system-ui, sans-serif; -webkit-font-smoothing: antialiased; }
+    body {
+      min-height: 100vh;
+      background-image: radial-gradient(ellipse at 50% -10%, rgba(91,107,58,0.55), rgba(91,107,58,0) 62%),
+        linear-gradient(rgba(210,179,122,0.04) 1px, transparent 1px), linear-gradient(90deg, rgba(210,179,122,0.04) 1px, transparent 1px);
+      background-size: 100% 100%, 40px 40px, 40px 40px;
+    }
+    .wrap { max-width: 480px; margin: 0 auto; padding: calc(36px + env(safe-area-inset-top)) 20px calc(40px + env(safe-area-inset-bottom)); display: flex; flex-direction: column; gap: 22px; }
+    header { text-align: center; display: flex; flex-direction: column; align-items: center; gap: 10px; }
+    .scope { width: 132px; height: 132px; }
+    .scope .ring { animation: spin 18s linear infinite; transform-origin: 66px 66px; }
+    @keyframes spin { to { transform: rotate(360deg); } }
+    @media (prefers-reduced-motion: reduce) { .scope .ring { animation: none; } }
+    h1 { margin: 4px 0 0; font-family: 'Anton', sans-serif; font-weight: 400; font-size: 52px; line-height: 0.95; letter-spacing: 0.03em; text-transform: uppercase; color: #fff; }
+    h1 em { font-style: normal; color: var(--tan); }
+    .handle { margin: 0; font-weight: 700; font-size: 14px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--tan); }
+    .tag { margin: 2px 0 0; font-size: 15px; line-height: 1.5; color: var(--muted); max-width: 360px; }
+    .stats { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; width: 100%; margin-top: 6px; }
+    .stats div { background: #121510; border: 1px solid var(--line); padding: 10px 6px; }
+    .stats b { display: block; font-family: 'Anton', sans-serif; font-weight: 400; font-size: 24px; letter-spacing: 0.03em; color: #fff; }
+    .stats span { font-size: 11px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: var(--muted); }
+    .btn { display: flex; align-items: center; gap: 14px; padding: 16px 18px; min-height: 60px; text-decoration: none; color: #fff; background: var(--card); border: 1px solid var(--line); font-weight: 700; font-size: 16px; font-family: inherit; cursor: pointer; text-align: left; width: 100%; transition: transform 0.15s ease, border-color 0.15s ease; }
+    .btn:active { transform: scale(0.98); }
+    .btn:hover, .btn:focus-visible { border-color: var(--tan); outline: none; }
+    .btn svg { flex: none; width: 26px; height: 26px; }
+    .btn span { flex: 1; }
+    .btn small { display: block; font-weight: 500; font-size: 12.5px; color: var(--muted); margin-top: 2px; }
+    .btn .arrow { flex: none; color: var(--tan); font-size: 18px; }
+    .btn--sub { justify-content: center; min-height: 76px; background: var(--red); border-color: var(--red); font-family: 'Anton', sans-serif; font-weight: 400; font-size: 24px; letter-spacing: 0.06em; text-transform: uppercase; }
+    .btn--sub span { flex: none; }
+    .btn--sub:hover, .btn--sub:focus-visible { background: #c41818; border-color: var(--tan); }
+    .grid2 { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+    .grid2 .btn { flex-direction: column; justify-content: center; text-align: center; gap: 8px; min-height: 92px; font-family: 'Anton', sans-serif; font-weight: 400; font-size: 18px; letter-spacing: 0.06em; text-transform: uppercase; }
+    .grid2 .btn span { flex: none; }
+    .list { display: flex; flex-direction: column; gap: 10px; }
+    h2 { margin: 6px 0 -4px; font-weight: 700; font-size: 12px; letter-spacing: 0.24em; text-transform: uppercase; color: var(--tan); }
+    .num { flex: none; width: 34px; height: 34px; display: grid; place-items: center; border: 1px solid var(--olive); color: var(--tan); font-family: 'Anton', sans-serif; font-size: 16px; }
+    footer { margin-top: 10px; text-align: center; font-size: 12px; color: #777; }
+    footer a { color: #9a9a9a; }
+    @media (max-width: 360px) { h1 { font-size: 42px; } .stats b { font-size: 20px; } }
+  </style>
+</head>
+<body>
+  <main class="wrap">
+    <header>
+      <svg class="scope" viewBox="0 0 132 132" aria-hidden="true">
+        <circle cx="66" cy="66" r="62" fill="#11140e" stroke="#2f3428" stroke-width="2"/>
+        <g class="ring"><circle cx="66" cy="66" r="54" fill="none" stroke="#d2b37a" stroke-width="2" stroke-dasharray="4 7"/></g>
+        <circle cx="66" cy="66" r="40" fill="none" stroke="#5b6b3a" stroke-width="2"/>
+        <path d="M66 14v34M66 84v34M14 66h34M84 66h34" stroke="#e7e6df" stroke-width="2.5"/>
+        <path d="M60 66h12M66 60v12" stroke="#e7e6df" stroke-width="1.5"/>
+        <circle cx="66" cy="66" r="3.5" fill="#e01e1e"/>
+      </svg>
+      <h1>KB32 <em>Tactical</em></h1>
+      <p class="handle">@kotaboy32</p>
+      <p class="tag">Range days, in-depth gear reviews and close-up detail shots, so you know what you're getting before you buy.</p>
+      <div class="stats" aria-label="Channel stats">
+        <div><b>246K+</b><span>Subscribers</span></div>
+        <div><b>22M+</b><span>Views</span></div>
+        <div><b>2009</b><span>On YouTube</span></div>
+      </div>
+    </header>
+
+    <a class="btn btn--sub" href="https://www.youtube.com/@kotaboy32?sub_confirmation=1" target="_blank" rel="noopener">
+      <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M23 7.2a3 3 0 0 0-2.1-2.1C19 4.6 12 4.6 12 4.6s-7 0-8.9.5A3 3 0 0 0 1 7.2 31 31 0 0 0 .5 12a31 31 0 0 0 .5 4.8 3 3 0 0 0 2.1 2.1c1.9.5 8.9.5 8.9.5s7 0 8.9-.5a3 3 0 0 0 2.1-2.1 31 31 0 0 0 .5-4.8 31 31 0 0 0-.5-4.8zM9.7 15.1V8.9l5.8 3.1z"/></svg>
+      <span>Subscribe</span>
+    </a>
+
+    <nav class="grid2" aria-label="Channel">
+      <a class="btn" href="https://www.youtube.com/@kotaboy32/videos" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="5" width="20" height="14" rx="2"/><path d="m10 9 5 3-5 3z"/></svg>
+        <span>Latest videos</span>
+      </a>
+      <a class="btn" href="https://www.youtube.com/@kotaboy32/shorts" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="6" y="2" width="12" height="20" rx="2"/><path d="m10 9 5 3-5 3z"/></svg>
+        <span>Shorts</span>
+      </a>
+    </nav>
+
+    <h2>Most watched guides</h2>
+    <div class="list">
+      <a class="btn" href="https://www.youtube.com/watch?v=l8EO80iqOyE" target="_blank" rel="noopener"><b class="num">1</b><span>How to zero a rifle scope<small>Beginner's guide · 2.2M views</small></span><b class="arrow">→</b></a>
+      <a class="btn" href="https://www.youtube.com/watch?v=O79RkDj7yu8" target="_blank" rel="noopener"><b class="num">2</b><span>How to zero a red dot<small>Easy beginner's guide · 1.8M views</small></span><b class="arrow">→</b></a>
+      <a class="btn" href="https://www.youtube.com/watch?v=kMQMYwtKjsY" target="_blank" rel="noopener"><b class="num">3</b><span>Barrels: cheap vs. expensive<small>What's the difference</small></span><b class="arrow">→</b></a>
+      <a class="btn" href="https://www.youtube.com/watch?v=9WbyCp_hrGg" target="_blank" rel="noopener"><b class="num">4</b><span>Gas blocks: basic or adjustable<small>Cheap vs. expensive</small></span><b class="arrow">→</b></a>
+    </div>
+
+    <h2>More</h2>
+    <div class="list">
+      <a class="btn" href="https://www.youtube.com/@kotaboy32/playlists" target="_blank" rel="noopener"><span>Playlists<small>Reviews and series, organized</small></span><b class="arrow">→</b></a>
+      <button class="btn" type="button" id="share"><span>Share this channel<small>Send it to a shooting buddy</small></span><b class="arrow">↗</b></button>
+    </div>
+
+    <footer>Tap tag by <a href="/techcustoms/">BannedProduct Tech Customs™</a></footer>
+  </main>
+  <script>
+    (function () {
+      var btn = document.getElementById('share');
+      var url = 'https://www.youtube.com/@kotaboy32';
+      btn.addEventListener('click', function () {
+        if (navigator.share) {
+          navigator.share({ title: 'KB32 Tactical', text: 'Check out KB32 Tactical on YouTube', url: url }).catch(function () {});
+        } else if (navigator.clipboard) {
+          navigator.clipboard.writeText(url).then(function () { btn.querySelector('small').textContent = 'Link copied'; });
+        } else {
+          window.open(url, '_blank', 'noopener');
+        }
+      });
+    })();
+  </script>
+</body>
+</html>
