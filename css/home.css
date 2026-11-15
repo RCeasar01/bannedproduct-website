@@ -364,3 +364,9 @@
 @media (max-width: 640px) {
   .sv-cta .hp-btn { width: 100%; text-align: center; }
 }
+
+/* ---------- About page ---------- */
+.ab-founder { align-items: start; }
+.ab-photo { display: flex; flex-direction: column; gap: 36px; }
+.ab-tags { display: flex; flex-wrap: wrap; gap: 10px; }
+.ab-founder .hp-brand-copy p strong { color: #fff; }
