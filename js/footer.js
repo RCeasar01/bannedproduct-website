@@ -10,7 +10,6 @@
     { icon: '◉', label: 'Instagram', href: 'https://www.instagram.com/rob_ceasar/' },
     { icon: '◈', label: 'TikTok',    href: 'https://www.tiktok.com/@bannedproduct7' },
     { icon: '◐', label: 'Twitch',    href: 'https://www.twitch.tv/banned_product' },
-    { icon: '⬡', label: 'Whatnot',   href: 'https://www.whatnot.com/user/bannedproduct' },
     { icon: '◎', label: 'LinkedIn',  href: 'https://www.linkedin.com/in/robertceasar/' },
     { icon: '◑', label: 'Facebook',  href: 'https://www.facebook.com/robert.ceasar1/' },
     { icon: '◈', label: 'Discord',   href: 'https://discord.gg/9qM6aBw9Eq' },
