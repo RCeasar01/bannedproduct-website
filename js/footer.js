@@ -63,7 +63,6 @@
           <li><a href="${resolvePath('/techcustoms/')}">Tech Customs</a></li>
           <li><a href="${resolvePath('/demos/')}">Live Demos</a></li>
           <li><a href="${resolvePath('/content/')}">Content Hub</a></li>
-          <li><a href="${resolvePath('/giveaways/')}">Giveaways</a></li>
           <li><a href="${resolvePath('/contact/')}">Contact</a></li>
         </ul>
       </div>
@@ -73,7 +72,6 @@
         <ul>
           <li><a href="${resolvePath('/privacy-policy/')}">Privacy Policy</a></li>
           <li><a href="${resolvePath('/terms/')}">Terms of Service</a></li>
-          <li><a href="${resolvePath('/giveaway-rules/')}">Giveaway Rules</a></li>
         </ul>
         <div style="margin-top:1.5rem;">
           <h4>Contact</h4>
@@ -87,7 +85,6 @@
       <div style="display:flex;gap:1.5rem;flex-wrap:wrap;">
         <a href="${resolvePath('/privacy-policy/')}">Privacy</a>
         <a href="${resolvePath('/terms/')}">Terms</a>
-        <a href="${resolvePath('/giveaway-rules/')}">Giveaway Rules</a>
       </div>
     </div>
   </div>
