@@ -60,6 +60,9 @@
     .tile { position: relative; margin: 0; background: var(--card); border: 2px solid var(--line); border-radius: 14px; overflow: hidden; cursor: zoom-in; box-shadow: 3px 3px 0 var(--ink); }
     .tile img { display: block; width: 100%; aspect-ratio: 1; object-fit: cover; background: #eadbc0; }
     .tile figcaption { padding: 7px 9px 5px; font-size: 12.5px; color: var(--muted); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+    .badge { position: absolute; top: 8px; left: 8px; padding: 4px 8px 2px; border: 2px solid var(--line); border-radius: 999px; background: var(--peach); font-size: 11px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; }
+    .public-head { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 10px; margin-bottom: 16px; }
+    .public-head p { margin: 0; color: var(--muted); font-size: 15px; }
     .empty { text-align: center; padding: 40px 10px; color: var(--muted); font-size: 16px; }
 
     /* viewer */
@@ -88,6 +91,16 @@
       <p class="sub">At Natasha &amp; Amber's · Nov. 22</p>
     </header>
 
+    <section id="public" class="hidden" aria-label="Shared photos">
+      <div class="public-head">
+        <p>Photos the hosts chose to share.</p>
+        <button class="btn btn--small" type="button" id="guest-signin">Guest sign in</button>
+      </div>
+      <p class="count" id="pub-count"></p>
+      <div class="grid" id="pub-grid"></div>
+      <p class="empty hidden" id="pub-empty">No shared photos yet. Check back after the party!</p>
+    </section>
+
     <section id="login" class="panel hidden" aria-labelledby="login-title">
       <h2 id="login-title">Come on in</h2>
       <p>Sign in with the username and password from your invite card to see and share the night's photos.</p>
@@ -99,6 +112,7 @@
         <button class="btn btn--block" type="submit">Sign in</button>
         <p class="msg" id="login-msg" role="alert"></p>
       </form>
+      <button class="btn btn--ghost btn--small" type="button" id="back-public" style="margin-top:6px;">Back to shared photos</button>
     </section>
 
     <section id="app" class="hidden">
@@ -118,12 +132,13 @@
         <p class="msg" id="upload-msg" role="status"></p>
       </div>
 
+      <p class="note" id="host-note" style="text-align:center;margin:0 0 12px;"></p>
       <p class="count" id="count"></p>
       <div class="grid" id="grid"></div>
       <p class="empty hidden" id="empty">No photos yet. Be the first to add one!</p>
     </section>
 
-    <footer>Private gallery · not listed or searchable · <a href="/">BannedProduct Media</a></footer>
+    <footer>Guest photos stay private unless the hosts share them · not listed or searchable · <a href="/">BannedProduct Media</a></footer>
   </main>
 
   <div class="viewer hidden" id="viewer" role="dialog" aria-modal="true" aria-label="Photo viewer">
@@ -134,6 +149,7 @@
     <p class="meta" id="v-meta"></p>
     <div class="row">
       <a class="btn btn--small" id="v-download" href="#" download>Download</a>
+      <button class="btn btn--ghost btn--small hidden" type="button" id="v-public">Make public</button>
       <button class="btn btn--ghost btn--small hidden" type="button" id="v-delete">Delete</button>
     </div>
   </div>
@@ -166,9 +182,9 @@
 
     var $ = function (id) { return document.getElementById(id); };
     var sb = window.supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
-    var me = null, members = {}, photos = [], urls = {}, current = -1;
+    var me = null, members = {}, photos = [], urls = {}, current = -1, mode = 'public';
 
-    function show(id) { ['login', 'app'].forEach(function (x) { $(x).classList.toggle('hidden', x !== id); }); }
+    function show(id) { ['public', 'login', 'app'].forEach(function (x) { $(x).classList.toggle('hidden', x !== id); }); }
     function setMsg(el, text, ok) { el.textContent = text || ''; el.classList.toggle('ok', !!ok); }
     function fmtTime(iso) {
       try { return new Date(iso).toLocaleString([], { month: 'short', day: 'numeric', hour: 'numeric', minute: '2-digit' }); }
@@ -188,15 +204,31 @@
       start(res.data.session);
     });
     $('logout-btn').addEventListener('click', async function () { await sb.auth.signOut(); location.reload(); });
+    $('guest-signin').addEventListener('click', function () { show('login'); $('username').focus(); });
+    $('back-public').addEventListener('click', function () { show('public'); });
+
+    // ---------- public view (no login) ----------
+    async function loadPublic() {
+      var res = await sb.from('fg_photos').select('id, created_at, full_path, thumb_path, is_public').eq('is_public', true).order('created_at', { ascending: false });
+      photos = res.data || [];
+      var need = photos.map(function (p) { return p.thumb_path; }).filter(function (p) { return !urls[p]; });
+      if (need.length) {
+        var sgn = await sb.storage.from(BUCKET).createSignedUrls(need, 60 * 60 * 6);
+        (sgn.data || []).forEach(function (x) { if (x.signedUrl) urls[x.path] = x.signedUrl; });
+      }
+      renderInto($('pub-grid'), $('pub-count'), $('pub-empty'));
+    }
 
     async function start(session) {
-      if (!session) { show('login'); return; }
+      if (!session) { mode = 'public'; show('public'); loadPublic(); return; }
+      mode = 'member';
       var m = await sb.from('fg_members').select('user_id, username, display_name, is_host');
       if (m.error || !m.data || !m.data.length) { await sb.auth.signOut(); show('login'); setMsg($('login-msg'), 'This account isn’t on the guest list.'); return; }
       members = {}; m.data.forEach(function (r) { members[r.user_id] = r; });
       me = members[session.user.id];
       if (!me) { await sb.auth.signOut(); show('login'); setMsg($('login-msg'), 'This account isn’t on the guest list.'); return; }
       $('me-name').textContent = me.display_name;
+      $('host-note').textContent = me.is_host ? 'As a host, open any photo and tap \u201cMake public\u201d to share it on the open page. Everything stays private until you do.' : 'Photos stay private to guests unless Natasha or Amber choose to share them.';
       show('app');
       loadPhotos();
     }
@@ -213,17 +245,20 @@
       }
       render();
     }
-    function render() {
-      var grid = $('grid'); grid.innerHTML = '';
-      $('empty').classList.toggle('hidden', photos.length > 0);
-      $('count').textContent = photos.length ? photos.length + (photos.length === 1 ? ' photo' : ' photos') : '';
+    function render() { renderInto($('grid'), $('count'), $('empty')); }
+    function whoOf(p) { return mode === 'member' ? ((members[p.user_id] && members[p.user_id].display_name) || 'Guest') : ''; }
+    function renderInto(grid, count, empty) {
+      grid.innerHTML = '';
+      empty.classList.toggle('hidden', photos.length > 0);
+      count.textContent = photos.length ? photos.length + (photos.length === 1 ? ' photo' : ' photos') : '';
       photos.forEach(function (p, i) {
         var fig = document.createElement('figure'); fig.className = 'tile'; fig.tabIndex = 0;
         var img = document.createElement('img'); img.loading = 'lazy'; img.src = urls[p.thumb_path] || '';
-        var who = (members[p.user_id] && members[p.user_id].display_name) || 'Guest';
-        img.alt = 'Photo added by ' + who;
-        var cap = document.createElement('figcaption'); cap.textContent = who + ' · ' + fmtTime(p.created_at);
+        var who = whoOf(p);
+        img.alt = who ? 'Photo added by ' + who : 'Friendsgiving photo';
+        var cap = document.createElement('figcaption'); cap.textContent = (who ? who + ' · ' : '') + fmtTime(p.created_at);
         fig.appendChild(img); fig.appendChild(cap);
+        if (mode === 'member' && p.is_public) { var b = document.createElement('span'); b.className = 'badge'; b.textContent = 'Public'; fig.appendChild(b); }
         fig.addEventListener('click', function () { openViewer(i); });
         fig.addEventListener('keydown', function (e) { if (e.key === 'Enter') openViewer(i); });
         grid.appendChild(fig);
@@ -234,11 +269,13 @@
     async function openViewer(i) {
       current = i; var p = photos[i]; if (!p) return;
       $('viewer').classList.remove('hidden'); document.body.style.overflow = 'hidden';
-      var who = (members[p.user_id] && members[p.user_id].display_name) || 'Guest';
-      $('v-meta').textContent = who + ' · ' + fmtTime(p.created_at) + '  (' + (i + 1) + ' of ' + photos.length + ')';
+      var who = whoOf(p);
+      $('v-meta').textContent = (who ? who + ' · ' : '') + fmtTime(p.created_at) + (mode === 'member' ? (p.is_public ? ' · Public' : ' · Private') : '') + '  (' + (i + 1) + ' of ' + photos.length + ')';
       $('v-img').src = urls[p.thumb_path] || '';
-      $('v-img').alt = 'Photo added by ' + who;
-      $('v-delete').classList.toggle('hidden', !(p.user_id === me.user_id || me.is_host));
+      $('v-img').alt = who ? 'Photo added by ' + who : 'Friendsgiving photo';
+      $('v-delete').classList.toggle('hidden', !(mode === 'member' && (p.user_id === me.user_id || me.is_host)));
+      $('v-public').classList.toggle('hidden', !(mode === 'member' && me.is_host));
+      $('v-public').textContent = p.is_public ? 'Make private' : 'Make public';
       $('v-prev').classList.toggle('hidden', i === 0);
       $('v-next').classList.toggle('hidden', i === photos.length - 1);
       if (!urls[p.full_path]) {
@@ -266,6 +303,14 @@
       if (touchX === null) return; var dx = e.changedTouches[0].clientX - touchX; touchX = null;
       if (dx > 60 && current > 0) openViewer(current - 1);
       if (dx < -60 && current < photos.length - 1) openViewer(current + 1);
+    });
+    $('v-public').addEventListener('click', async function () {
+      var p = photos[current]; if (!p) return;
+      var btn = $('v-public'); btn.disabled = true;
+      var res = await sb.from('fg_photos').update({ is_public: !p.is_public }).eq('id', p.id).select('id');
+      btn.disabled = false;
+      if (res.error || !res.data || !res.data.length) { alert('Couldn\u2019t change that photo.'); return; }
+      p.is_public = !p.is_public; render(); openViewer(current);
     });
     $('v-delete').addEventListener('click', async function () {
       var p = photos[current]; if (!p || !confirm('Delete this photo for everyone? This can’t be undone.')) return;
